@@ -1,0 +1,339 @@
+{% extends "base.html" %}
+
+{% block title %}Ontology Information - Library Ontology{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h1><i class="fas fa-info-circle"></i> Library Ontology Information</h1>
+            <p class="lead">Detailed information about the semantic structure and content of our library ontology</p>
+        </div>
+    </div>
+
+    <!-- Statistics Overview -->
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card stats-card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-book fa-2x mb-2"></i>
+                    <h2>{{ stats.books }}</h2>
+                    <p class="mb-0">Books</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stats-card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-users fa-2x mb-2"></i>
+                    <h2>{{ stats.authors }}</h2>
+                    <p class="mb-0">Authors</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stats-card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-building fa-2x mb-2"></i>
+                    <h2>{{ stats.publishers }}</h2>
+                    <p class="mb-0">Publishers</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stats-card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-tags fa-2x mb-2"></i>
+                    <h2>{{ stats.genres }}</h2>
+                    <p class="mb-0">Genres</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Triple Count -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5><i class="fas fa-database"></i> RDF Graph Statistics</h5>
+                </div>
+                <div class="card-body text-center">
+                    <h1 class="display-4 text-primary">{{ stats.total_triples }}</h1>
+                    <p class="lead">Total RDF Triples in the Ontology</p>
+                    <small class="text-muted">
+                        Each triple represents a statement in the form: Subject → Predicate → Object
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ontology Structure -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5><i class="fas fa-sitemap"></i> Classes</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas fa-book text-primary"></i>
+                                <strong>library:Book</strong>
+                                <small class="d-block text-muted">Represents books in the collection</small>
+                            </div>
+                            <span class="badge bg-primary rounded-pill">{{ stats.books }}</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas fa-user text-info"></i>
+                                <strong>library:Author</strong>
+                                <small class="d-block text-muted">Represents book authors</small>
+                            </div>
+                            <span class="badge bg-info rounded-pill">{{ stats.authors }}</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas fa-building text-warning"></i>
+                                <strong>library:Publisher</strong>
+                                <small class="d-block text-muted">Represents publishing companies</small>
+                            </div>
+                            <span class="badge bg-warning rounded-pill">{{ stats.publishers }}</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas fa-tags text-success"></i>
+                                <strong>library:Genre</strong>
+                                <small class="d-block text-muted">Represents book genres/categories</small>
+                            </div>
+                            <span class="badge bg-success rounded-pill">{{ stats.genres }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5><i class="fas fa-arrows-alt"></i> Key Properties</h5>
+                </div>
+                <div class="card-body">
+                    <div class="accordion" id="propertiesAccordion">
+                        <div class="accordion-item">
+                            <h6 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bookProps">
+                                    <i class="fas fa-book me-2"></i> Book Properties
+                                </button>
+                            </h6>
+                            <div id="bookProps" class="accordion-collapse collapse" data-bs-parent="#propertiesAccordion">
+                                <div class="accordion-body">
+                                    <ul class="list-unstyled">
+                                        <li><code>library:hasTitle</code> - Book title</li>
+                                        <li><code>library:hasISBN</code> - ISBN number</li>
+                                        <li><code>library:publicationYear</code> - Publication year</li>
+                                        <li><code>library:hasAuthor</code> - Link to author</li>
+                                        <li><code>library:hasPublisher</code> - Link to publisher</li>
+                                        <li><code>library:hasGenre</code> - Link to genre</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h6 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#authorProps">
+                                    <i class="fas fa-user me-2"></i> Author Properties
+                                </button>
+                            </h6>
+                            <div id="authorProps" class="accordion-collapse collapse" data-bs-parent="#propertiesAccordion">
+                                <div class="accordion-body">
+                                    <ul class="list-unstyled">
+                                        <li><code>library:hasName</code> - Author's full name</li>
+                                        <li><code>library:birthYear</code> - Birth year</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h6 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#otherProps">
+                                    <i class="fas fa-cog me-2"></i> Other Properties
+                                </button>
+                            </h6>
+                            <div id="otherProps" class="accordion-collapse collapse" data-bs-parent="#propertiesAccordion">
+                                <div class="accordion-body">
+                                    <ul class="list-unstyled">
+                                        <li><code>library:publisherName</code> - Publisher name</li>
+                                        <li><code>library:genreName</code> - Genre name</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Namespaces -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-globe"></i> Namespaces</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Primary Namespace:</h6>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <strong>library:</strong> 
+                                    <code>http://example.org/library#</code>
+                                    <small class="d-block text-muted">Our main library ontology namespace</small>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Standard Namespaces:</h6>
+                            <ul class="list-unstyled">
+                                <li><strong>rdf:</strong> <code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></li>
+                                <li><strong>rdfs:</strong> <code>http://www.w3.org/2000/01/rdf-schema#</code></li>
+                                <li><strong>xsd:</strong> <code>http://www.w3.org/2001/XMLSchema#</code></li>
+                                <li><strong>dc:</strong> <code>http://purl.org/dc/elements/1.1/</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Details -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5><i class="fas fa-cogs"></i> Technical Implementation</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success"></i> <strong>Format:</strong> Turtle (TTL)</li>
+                        <li><i class="fas fa-check text-success"></i> <strong>Storage:</strong> File-based with rdflib</li>
+                        <li><i class="fas fa-check text-success"></i> <strong>Framework:</strong> Flask + Jinja2</li>
+                        <li><i class="fas fa-check text-success"></i> <strong>Python Library:</strong> rdflib</li>
+                        <li><i class="fas fa-check text-success"></i> <strong>Auto-persistence:</strong> Enabled</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5><i class="fas fa-tools"></i> Available Operations</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group list-group-flush">
+                        <a href="{{ url_for('index') }}" class="list-group-item list-group-item-action">
+                            <i class="fas fa-list"></i> Browse all books
+                        </a>
+                        <a href="{{ url_for('authors') }}" class="list-group-item list-group-item-action">
+                            <i class="fas fa-users"></i> View authors
+                        </a>
+                        <a href="{{ url_for('search') }}" class="list-group-item list-group-item-action">
+                            <i class="fas fa-search"></i> Search collection
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sample Ontology Structure -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-code"></i> Sample Ontology Structure (Turtle)</h5>
+                </div>
+                <div class="card-body">
+                    <pre class="bg-light p-3 rounded" style="font-size: 0.85em;"><code>@prefix library: <http://example.org/library#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+library:Author a rdfs:Class .
+
+library:Book a rdfs:Class .
+
+library:Genre a rdfs:Class .
+
+library:Loan a rdfs:Class .
+
+library:Publisher a rdfs:Class .
+
+library:User a rdfs:Class .
+
+library:activeLoan a rdf:Property ;
+    rdfs:domain library:Book ;
+    rdfs:range library:Loan .
+
+library:bio a rdf:Property ;
+    rdfs:range xsd:string .
+
+library:birthYear a rdf:Property ;
+    rdfs:domain library:Author ;
+    rdfs:range xsd:integer .
+
+library:book_OL10215W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL30241A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9781535135887"^^xsd:string ;
+    library:hasPublisher library:publisher_CreateSpace_Independent_Publishing_Platform ;
+    library:hasTitle "Мы"^^xsd:string ;
+    library:numberOfPages "130"^^xsd:string ;
+    library:publicationYear 1924 .
+                        </code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- File Information -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="alert alert-info">
+                <h6><i class="fas fa-file"></i> Ontology File Information:</h6>
+                <p class="mb-0">
+                    The complete ontology is stored in <code>library_populated_with_users_loans.ttl</code> in Turtle format. 
+                    This file contains all {{ stats.total_triples }} RDF triples representing the semantic 
+                    relationships between books, authors, publishers, and genres in our library collection.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const statsCards = document.querySelectorAll('.stats-card');
+    statsCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+});
+</script>
+{% endblock %}
+{% endblock %}

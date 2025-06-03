@@ -1,0 +1,302 @@
+{% extends "base.html" %}
+
+{% block title %}{{ user.name }} - Library Ontology{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Breadcrumb navigation -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('users') }}">Users</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ user.name }}</li>
+        </ol>
+    </nav>
+
+    <!-- User Header Section -->
+    <div class="row mb-4">
+        <div class="col-lg-8">
+            <h1 class="display-5">
+                <i class="fas fa-user-circle"></i> {{ user.name }}
+            </h1>
+            <h5 class="text-muted">
+                <i class="fas fa-envelope"></i> {{ user.email }}
+            </h5>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+            <a href="{{ url_for('users') }}" class="btn btn-outline-primary">
+                <i class="fas fa-arrow-left"></i> Back to Users
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="row">
+        <!-- User Profile and Stats -->
+        <div class="col-md-4">
+            <!-- User Profile Card -->
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="fas fa-id-card"></i> User Profile</h5>
+                </div>
+                <div class="card-body">
+                    <!-- User Avatar Placeholder -->
+                    <div class="text-center mb-3">
+                        <div class="user-avatar bg-light border rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3"
+                             style="width: 150px; height: 150px;">
+                            <i class="fas fa-user fa-4x text-secondary"></i>
+                        </div>
+                    </div>
+                    
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th scope="row"><i class="fas fa-signature"></i> Name:</th>
+                                <td>{{ user.name }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><i class="fas fa-envelope"></i> Email:</th>
+                                <td>{{ user.email }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><i class="fas fa-books"></i> Total Loans:</th>
+                                <td>{{ loans|length }}</td>
+                            </tr>
+                            {% set today = now().date() %}
+                            {% set active_loans = 0 %}
+                            {% for loan in loans %}
+                                {% if loan.return_date.date() >= today %}
+                                    {% set active_loans = active_loans + 1 %}
+                                {% endif %}
+                            {% endfor %}
+                            <tr>
+                                <th scope="row"><i class="fas fa-book-reader"></i> Active Loans:</th>
+                                <td>
+                                    <span class="badge bg-{{ 'warning' if active_loans > 0 else 'success' }}">
+                                        {{ active_loans }}
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer bg-light">
+                </div>
+            </div>
+            
+            <!-- User Reading Preferences -->
+            <div class="card mb-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="fas fa-chart-pie"></i> Reading Preferences</h5>
+                </div>
+                <div class="card-body p-0">
+                    <!-- Favorite Genres -->
+                    {% set favorite_genres_list = favorite_genres|list %}
+                    {% if favorite_genres_list and favorite_genres_list|length > 0 %}
+                    <div class="p-3 border-bottom">
+                        <h6><i class="fas fa-tags"></i> Favorite Genres</h6>
+                        <div class="list-group list-group-flush">
+                            {% for genre in favorite_genres_list %}
+                            <div class="list-group-item p-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span>{{ genre.genre_name }}</span>
+                                    <span class="badge bg-primary rounded-pill">{{ genre.count|int }}</span>
+                                </div>
+                                <div class="progress mt-1" style="height: 5px;">
+                                    <div class="progress-bar" role="progressbar" 
+                                         style="width: {{ (genre.count|int / favorite_genres_list[0].count|int * 100)|int }}%;" 
+                                         aria-valuenow="{{ genre.count|int }}" aria-valuemin="0" 
+                                         aria-valuemax="{{ favorite_genres_list[0].count|int }}"></div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Favorite Authors -->
+                    {% set favorite_authors_list = favorite_authors|list %}
+                    {% if favorite_authors_list and favorite_authors_list|length > 0 %}
+                    <div class="p-3">
+                        <h6><i class="fas fa-users"></i> Favorite Authors</h6>
+                        <div class="list-group list-group-flush">
+                            {% for author in favorite_authors_list %}
+                            <div class="list-group-item p-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span>{{ author.author_name }}</span>
+                                    <span class="badge bg-primary rounded-pill">{{ author.count|int }}</span>
+                                </div>
+                                <div class="progress mt-1" style="height: 5px;">
+                                    <div class="progress-bar" role="progressbar" 
+                                         style="width: {{ (author.count|int / favorite_authors_list[0].count|int * 100)|int }}%;" 
+                                         aria-valuenow="{{ author.count|int }}" aria-valuemin="0" 
+                                         aria-valuemax="{{ favorite_authors_list[0].count|int }}"></div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    {% if (not favorite_genres_list or favorite_genres_list|length == 0) and 
+                          (not favorite_authors_list or favorite_authors_list|length == 0) %}
+                    <div class="p-3">
+                        <div class="alert alert-info mb-0">
+                            <i class="fas fa-info-circle"></i> No reading preferences data available yet.
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Reading Activity -->
+        <div class="col-md-8">
+            <!-- Reading Activity Timeline -->
+            {% if loans %}
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-chart-line"></i> Reading Activity</h5>
+                </div>
+                <div class="card-body">
+                    {% set today = now().date() %}
+                    <!-- Active Loans Section -->
+                    {% set active_loans = [] %}
+                    {% set past_loans = [] %}
+                    
+                    {% for loan in loans %}
+                        {% if loan.return_date.date() >= today %}
+                            {% set active_loans = active_loans + [loan] %}
+                        {% else %}
+                            {% set past_loans = past_loans + [loan] %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% if active_loans %}
+                    <h6 class="border-bottom pb-2 mb-3"><i class="fas fa-book-reader"></i> Current Loans</h6>
+                    <div class="row mb-4">
+                        {% for loan in active_loans %}
+                        <div class="col-md-6 mb-3">
+                            <div class="card h-100 border-warning">
+                                <div class="card-header bg-warning bg-opacity-25">
+                                    <h6 class="card-title mb-0">
+                                        <a href="{{ url_for('book_detail', book_id=loan.book|extract_id) }}" class="text-decoration-none">
+                                            {{ loan.book_title }}
+                                        </a>
+                                    </h6>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <small>
+                                            <i class="fas fa-calendar-plus"></i> Borrowed: 
+                                            <span class="text-muted">{{ loan.loan_date.strftime('%Y-%m-%d') }}</span>
+                                        </small>
+                                    </p>
+                                    <p class="card-text">
+                                        <small>
+                                            <i class="fas fa-calendar-minus"></i> Due back: 
+                                            <strong class="{{ 'text-danger' if loan.return_date.date() <= today else 'text-warning' }}">
+                                                {{ loan.return_date.strftime('%Y-%m-%d') }}
+                                            </strong>
+                                        </small>
+                                    </p>
+                                    
+                                    {% set days_remaining = (loan.return_date.date() - today).days %}
+                                    <div class="progress mt-2" style="height: 5px;">
+                                        <div class="progress-bar bg-{{ 'danger' if days_remaining <= 3 else 'warning' }}" 
+                                             role="progressbar" 
+                                             style="width: {{ 100 - (days_remaining / 30 * 100)|int if days_remaining > 0 else 100 }}%;" 
+                                             aria-valuenow="{{ days_remaining }}" 
+                                             aria-valuemin="0" 
+                                             aria-valuemax="30"></div>
+                                    </div>
+                                    <div class="text-end mt-1">
+                                        <small class="text-muted">
+                                            {{ days_remaining }} days remaining
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-light">
+                                    <a href="{{ url_for('book_detail', book_id=loan.book|extract_id) }}" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-info-circle"></i> Book Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    
+                    <div class="timeline">
+                        {% for loan in loans|sort(attribute='loan_date', reverse=True) %}
+                        <div class="timeline-item d-flex align-items-center mb-3">
+                            <div class="timeline-date bg-{{ 'primary' if loan.return_date.date() < today else 'warning' }} text-white rounded px-3 py-1 me-3">
+                                {{ loan.loan_date.strftime('%Y-%m-%d') }}
+                            </div>
+                            <div class="timeline-content">
+                                <strong>
+                                    <a href="{{ url_for('book_detail', book_id=loan.book|extract_id) }}" class="text-decoration-none">
+                                        {{ loan.book_title }}
+                                    </a>
+                                </strong>
+                                <small class="text-muted d-block">
+                                    {{ "Returned" if loan.return_date.date() < today else "Due" }}: {{ loan.return_date.strftime('%Y-%m-%d') }}
+                                </small>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-chart-line"></i> Reading Activity</h5>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i> This user has no reading activity yet.
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+.timeline {
+    position: relative;
+    padding: 1rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background: #dee2e6;
+    left: 60px;
+    top: 0;
+}
+
+.timeline-item {
+    position: relative;
+    z-index: 1;
+}
+
+.user-avatar {
+    transition: transform 0.3s;
+}
+
+.user-avatar:hover {
+    transform: scale(1.05);
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+});
+</script>
+{% endblock %}

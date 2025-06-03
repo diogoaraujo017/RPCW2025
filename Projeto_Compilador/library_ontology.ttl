@@ -1,0 +1,79 @@
+@prefix library: <http://example.org/library#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+library:Author a rdfs:Class .
+
+library:Book a rdfs:Class .
+
+library:Genre a rdfs:Class .
+
+library:Loan a rdfs:Class .
+
+library:Publisher a rdfs:Class .
+
+library:User a rdfs:Class .
+
+library:activeLoan a rdf:Property ;
+    rdfs:domain library:Book ;
+    rdfs:range library:Loan .
+
+library:bio a rdf:Property ;
+    rdfs:range xsd:string .
+
+library:birthYear a rdf:Property ;
+    rdfs:domain library:Author ;
+    rdfs:range xsd:integer .
+
+library:borrowedBook a rdf:Property ;
+    rdfs:domain library:Loan ;
+    rdfs:range library:Book .
+
+library:borrower a rdf:Property ;
+    rdfs:domain library:Loan ;
+    rdfs:range library:User .
+
+library:deathYear a rdf:Property ;
+    rdfs:domain library:Author ;
+    rdfs:range xsd:integer .
+
+library:hasAuthor a rdf:Property ;
+    rdfs:domain library:Book ;
+    rdfs:range library:Author .
+
+library:hasGenre a rdf:Property ;
+    rdfs:domain library:Book ;
+    rdfs:range library:Genre .
+
+library:hasISBN a rdf:Property ;
+    rdfs:domain library:Book ;
+    rdfs:range xsd:string .
+
+library:hasPublisher a rdf:Property ;
+    rdfs:domain library:Book ;
+    rdfs:range library:Publisher .
+
+library:hasTitle a rdf:Property ;
+    rdfs:domain library:Book ;
+    rdfs:range xsd:string .
+
+library:loanDate a rdf:Property ;
+    rdfs:domain library:Loan ;
+    rdfs:range xsd:date .
+
+library:name a rdf:Property ;
+    rdfs:range xsd:string .
+
+library:publicationYear a rdf:Property ;
+    rdfs:domain library:Book ;
+    rdfs:range xsd:integer .
+
+library:returnDate a rdf:Property ;
+    rdfs:domain library:Loan ;
+    rdfs:range xsd:date .
+
+library:userEmail a rdf:Property ;
+    rdfs:domain library:User ;
+    rdfs:range xsd:string .
+

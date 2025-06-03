@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+{% from "pagination.html" import pagination %}
+
+{% block title %}Authors - Library Ontology{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h1><i class="fas fa-users"></i> Authors Collection</h1>
+            <p class="lead">Explore the authors in our library ontology</p>
+        </div>
+    </div>
+
+    <div class="row">
+        {% if authors %}
+            {% set author_list = authors|list %}
+            <div class="col-12 mb-4">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i> 
+                    Showing page {{ page }} of {{ total_pages }} ({{ author_list|length }} of {{ total_authors }} authors)
+                </div>
+            </div>
+
+            {% for author in author_list %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-user"></i> 
+                            {{ author.name }}
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        {% if author.birth_year %}
+                        <p class="card-text">
+                            <strong><i class="fas fa-birthday-cake"></i> Birth Year:</strong> 
+                            {{ author.birth_year }}
+                            <small class="text-muted">
+                                ({{ (2025 - author.birth_year|int) }} years ago)
+                            </small>
+                        </p>
+                        {% endif %}
+                        
+                        <div class="mt-3">
+                            <h6><i class="fas fa-books"></i> Books in Collection:</h6>
+                            <div class="books-list">
+                                {% set author_id = author.author|extract_id %}
+                                {% if authors_books and author_id in authors_books and authors_books[author_id] %}
+                                    <div class="list-group list-group-flush">
+                                        {% for book in authors_books[author_id] %}
+                                        <div class="list-group-item list-group-item-action py-1 px-2">
+                                            <small>
+                                                <i class="fas fa-book"></i> 
+                                                <a href="{{ url_for('book_detail', book_id=book.book|extract_id) }}" class="text-decoration-none">
+                                                    {{ book.title }}
+                                                </a>
+                                                {% if book.year %}
+                                                <span class="text-muted">({{ book.year }})</span>
+                                                {% endif %}
+                                            </small>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="mt-2">
+                                        <small class="text-muted">
+                                            <a href="{{ url_for('author_detail', author_id=author_id) }}" class="text-decoration-none">
+                                                <i class="fas fa-search"></i> View all books by this author
+                                            </a>
+                                        </small>
+                                    </div>
+                                {% else %}
+                                    <div class="text-muted small">No books found for this author.</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center bg-light">
+                        <a href="{{ url_for('author_detail', author_id=author.author|extract_id) }}" class="btn btn-info btn-sm text-white">
+                            <i class="fas fa-info-circle"></i> Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+            <!-- Pagination controls -->
+            <div class="col-12 mt-4">
+                {{ pagination(page, total_pages, 'authors') }}
+            </div>
+        {% else %}
+            <div class="col-12">
+                <div class="alert alert-warning text-center">
+                    <h4><i class="fas fa-exclamation-triangle"></i> No Authors Found</h4>
+                    <p>There are currently no authors in the library ontology.</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Author Statistics -->
+    {% if authors %}
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3><i class="fas fa-chart-pie"></i> Author Statistics</h3>
+        </div>
+        
+        {% set author_list = authors|list %}
+        <div class="col-md-3">
+            <div class="card stats-card text-center">
+                <div class="card-body">
+                    <h2>{{ total_authors }}</h2>
+                    <p class="mb-0">Total Authors</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card stats-card text-center">
+                <div class="card-body">
+                    <h2>{{ author_list|selectattr('birth_year')|list|length }}</h2>
+                    <p class="mb-0">With Birth Years</p>
+                </div>
+            </div>
+        </div>
+        
+        {% if author_list|selectattr('birth_year')|list %}
+        <div class="col-md-3">
+            <div class="card stats-card text-center">
+                <div class="card-body">
+                    {% set birth_years = author_list|selectattr('birth_year')|map(attribute='birth_year')|map('int')|list %}
+                    <h2>{{ birth_years|min }}</h2>
+                    <p class="mb-0">Earliest Birth Year</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card stats-card text-center">
+                <div class="card-body">
+                    <h2>{{ birth_years|max }}</h2>
+                    <p class="mb-0">Latest Birth Year</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- Author Timeline -->
+    {% if authors %}
+    {% set authors_with_years = authors|selectattr('birth_year')|list %}
+    {% if authors_with_years %}
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-timeline"></i> Author Timeline</h5>
+                </div>
+                <div class="card-body">
+                    <div class="timeline">
+                        {% for author in authors_with_years|sort(attribute='birth_year') %}
+                        <div class="timeline-item d-flex align-items-center mb-3">
+                            <div class="timeline-year bg-primary text-white rounded px-3 py-1 me-3">
+                                {{ author.birth_year }}
+                            </div>
+                            <div class="timeline-content">
+                                <a href="{{ url_for('author_detail', author_id=author.author|extract_id) }}" class="text-decoration-none">
+                                    <strong>{{ author.name }}</strong>
+                                </a>
+                                <small class="text-muted ms-2">
+                                    ({{ (2025 - author.birth_year|int) }} years ago)
+                                </small>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
+
+</div>
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const authorCards = document.querySelectorAll('.card');
+    authorCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 8px 15px rgba(0,0,0,0.1)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+        });
+    });
+});
+</script>
+{% endblock %}
+{% endblock %}

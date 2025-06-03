@@ -1,0 +1,2935 @@
+@prefix library: <http://example.org/library#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+library:Author a rdfs:Class .
+
+library:Book a rdfs:Class .
+
+library:Genre a rdfs:Class .
+
+library:Loan a rdfs:Class .
+
+library:Publisher a rdfs:Class .
+
+library:User a rdfs:Class .
+
+library:activeLoan a rdf:Property ;
+    rdfs:domain library:Book ;
+    rdfs:range library:Loan .
+
+library:bio a rdf:Property ;
+    rdfs:range xsd:string .
+
+library:birthYear a rdf:Property ;
+    rdfs:domain library:Author ;
+    rdfs:range xsd:integer .
+
+library:book_OL10215W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL30241A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9781535135887"^^xsd:string ;
+    library:hasPublisher library:publisher_CreateSpace_Independent_Publishing_Platform ;
+    library:hasTitle "Мы"^^xsd:string ;
+    library:numberOfPages "130"^^xsd:string ;
+    library:publicationYear 1924 .
+
+library:book_OL103123W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL24137A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9781508760863"^^xsd:string ;
+    library:hasPublisher library:publisher_CreateSpace_Independent_Publishing_Platform ;
+    library:hasTitle "Fahrenheit 451"^^xsd:string ;
+    library:numberOfPages "184"^^xsd:string ;
+    library:publicationYear 1953 .
+
+library:book_OL1099280W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL113611A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9781459011700"^^xsd:string ;
+    library:hasPublisher library:publisher_General_Books_LLC ;
+    library:hasTitle "Vingt mille lieues sous les mers"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1870 .
+
+library:book_OL114207W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL32625A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9781564022622"^^xsd:string ;
+    library:hasPublisher library:publisher_Candlewick_Press ;
+    library:hasTitle "Can't You Sleep, Little Bear?"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1988 .
+
+library:book_OL1168083W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL118077A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9780141919959"^^xsd:string ;
+    library:hasPublisher library:publisher_Penguin ;
+    library:hasTitle "Nineteen Eighty-Four"^^xsd:string ;
+    library:numberOfPages "360"^^xsd:string ;
+    library:publicationYear 1949 .
+
+library:book_OL118606W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL20593A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "041696060X"^^xsd:string ;
+    library:hasPublisher library:publisher_Methuen_Children_s ;
+    library:hasTitle "Knock, Knock! Who's There?"^^xsd:string ;
+    library:numberOfPages "30"^^xsd:string ;
+    library:publicationYear 1985 .
+
+library:book_OL1253282W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL7737529A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9798437957080"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_Published ;
+    library:hasTitle "The Old Man in the Corner"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1908 .
+
+library:book_OL138052W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL22098A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9798680608630"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_Published ;
+    library:hasTitle "Alice's Adventures in Wonderland"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1865 .
+
+library:book_OL1418187W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL146605A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "N"^^xsd:string ;
+    library:hasPublisher library:publisher_Dover ;
+    library:hasTitle "A Princess of Mars"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1917 .
+
+library:book_OL15145243W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL1391152A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9780670014125"^^xsd:string ;
+    library:hasPublisher library:publisher_Viking_Children_s_Books ;
+    library:hasTitle "Llama, Llama Red Pajama"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 2005 .
+
+library:book_OL15161074W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL18722A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9780439321754"^^xsd:string ;
+    library:hasPublisher library:publisher_Scholastic ;
+    library:hasTitle "How Do Dinosaurs Say Good Night?"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 2000 .
+
+library:book_OL15184749W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL34842A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9780764513794"^^xsd:string ;
+    library:hasPublisher library:publisher_Wiley___Sons__Incorporated__John ;
+    library:hasTitle "C For Dummies"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1994 .
+
+library:book_OL15400582W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL2632008A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9798759756842"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_Published ;
+    library:hasTitle "The Big Sleep"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1939 .
+
+library:book_OL15448W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL23082A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9781548845704"^^xsd:string ;
+    library:hasPublisher library:publisher_CreateSpace_Independent_Publishing_Platform ;
+    library:hasTitle "The Princess and Curdie"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1832 .
+
+library:book_OL16816234W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL2493250A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9782075095082"^^xsd:string ;
+    library:hasPublisher library:publisher_GALLIMARD_JEUNE ;
+    library:hasTitle "Pip and Posy"^^xsd:string ;
+    library:numberOfPages "24"^^xsd:string ;
+    library:publicationYear 2013 .
+
+library:book_OL176045W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL22358A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9798611345634"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_Published ;
+    library:hasTitle "The Woman in White"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1860 .
+
+library:book_OL176092W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL22358A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9798582413424"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_Published ;
+    library:hasTitle "The Moonstone"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1868 .
+
+library:book_OL1805961W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL216660A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9780690039184"^^xsd:string ;
+    library:hasPublisher library:publisher_Harpercollins ;
+    library:hasTitle "Would You Rather?"^^xsd:string ;
+    library:numberOfPages "32"^^xsd:string ;
+    library:publicationYear 1978 .
+
+library:book_OL1948704W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL233814A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9781444939552"^^xsd:string ;
+    library:hasPublisher library:publisher_N_A ;
+    library:hasTitle "Five on a Treasure Island"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1942 .
+
+library:book_OL1973389W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL237115A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9780060743895"^^xsd:string ;
+    library:hasPublisher library:publisher_HarperChildrensAudio ;
+    library:hasTitle "Mouse Tales"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1972 .
+
+library:book_OL2062550W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL251874A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9781559372756"^^xsd:string ;
+    library:hasPublisher library:publisher_Institute_of_Electrical___Electronics_Enginee ;
+    library:hasTitle "IEEE standard for information technology"^^xsd:string ;
+    library:numberOfPages "456"^^xsd:string ;
+    library:publicationYear 1991 .
+
+library:book_OL21655116W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL3098140A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9780429617508"^^xsd:string ;
+    library:hasPublisher library:publisher_Taylor___Francis_Group ;
+    library:hasTitle "Game Ai Pro 360"^^xsd:string ;
+    library:numberOfPages "150"^^xsd:string ;
+    library:publicationYear 2019 .
+
+library:book_OL24156W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL25963A ;
+    library:hasGenre library:genre_mystery_and_detective_stories,
+        library:genre_science_fiction ;
+    library:hasISBN "9798597266084"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_Published ;
+    library:hasTitle "The Strange Case of Dr. Jekyll and Mr. Hyde"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1875 .
+
+library:book_OL262421W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL161167A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9798539078782"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_Published ;
+    library:hasTitle "The Adventures of Sherlock Holmes [12 stories]"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1892 .
+
+library:book_OL262426W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL161167A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9788491047940"^^xsd:string ;
+    library:hasPublisher library:publisher_Alianza_Editorial ;
+    library:hasTitle "The Case-Book of Sherlock Holmes"^^xsd:string ;
+    library:numberOfPages "344"^^xsd:string ;
+    library:publicationYear 1927 .
+
+library:book_OL262454W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL161167A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9781587265310"^^xsd:string ;
+    library:hasPublisher library:publisher_Borders_Classics ;
+    library:hasTitle "The Hound of the Baskervilles"^^xsd:string ;
+    library:numberOfPages "456"^^xsd:string ;
+    library:publicationYear 1900 .
+
+library:book_OL262460W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL161167A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9798839916227"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_Published ;
+    library:hasTitle "The Lost World"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1900 .
+
+library:book_OL262463W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL161167A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9781374905672"^^xsd:string ;
+    library:hasPublisher library:publisher_Pinnacle_Press ;
+    library:hasTitle "Memoirs of Sherlock Holmes [11 stories]"^^xsd:string ;
+    library:numberOfPages "252"^^xsd:string ;
+    library:publicationYear 1893 .
+
+library:book_OL262477W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL161167A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9788417477141"^^xsd:string ;
+    library:hasPublisher library:publisher_Plutón_Ediciones ;
+    library:hasTitle "The Return of Sherlock Holmes"^^xsd:string ;
+    library:numberOfPages "356"^^xsd:string ;
+    library:publicationYear 1903 .
+
+library:book_OL262554W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL161167A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9781784048662"^^xsd:string ;
+    library:hasPublisher library:publisher_Arcturus_Publishing ;
+    library:hasTitle "The Complete Sherlock Holmes [4 novels, 56 stories]"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1900 .
+
+library:book_OL262596W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL161167A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9798650459422"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_Published ;
+    library:hasTitle "The Poison Belt"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1913 .
+
+library:book_OL2720189W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL398099A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9781259170546"^^xsd:string ;
+    library:hasPublisher library:publisher_McGraw_Hill_Education ;
+    library:hasTitle "Numerical methods for engineers"^^xsd:string ;
+    library:numberOfPages "992"^^xsd:string ;
+    library:publicationYear 1985 .
+
+library:book_OL2752731W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL403903A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9781405263757"^^xsd:string ;
+    library:hasPublisher library:publisher_Farshore ;
+    library:hasTitle "Good Night Gorilla"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1994 .
+
+library:book_OL284009W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL548592A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9780072989571"^^xsd:string ;
+    library:hasPublisher library:publisher_McGraw_Hill_Science_Engineering_Math ;
+    library:hasTitle "Software Engineering"^^xsd:string ;
+    library:numberOfPages "840"^^xsd:string ;
+    library:publicationYear 1982 .
+
+library:book_OL2965102W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL453119A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9782266142830"^^xsd:string ;
+    library:hasPublisher library:publisher_Pocket_jeunesse ;
+    library:hasTitle "The Curious Incident of the Dog in the Night-Time"^^xsd:string ;
+    library:numberOfPages "393"^^xsd:string ;
+    library:publicationYear 2002 .
+
+library:book_OL2995643W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL7409817A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9780672217890"^^xsd:string ;
+    library:hasPublisher library:publisher_Prentice_Hall ;
+    library:hasTitle "Mostly BASIC"^^xsd:string ;
+    library:numberOfPages "160"^^xsd:string ;
+    library:publicationYear 1980 .
+
+library:book_OL3006186W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL461522A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9780070652972"^^xsd:string ;
+    library:hasPublisher library:publisher_Mcgraw_Hill_College ;
+    library:hasTitle "Computers!"^^xsd:string ;
+    library:numberOfPages "648"^^xsd:string ;
+    library:publicationYear 1987 .
+
+library:book_OL30391W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL27541A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9781536202144"^^xsd:string ;
+    library:hasPublisher library:publisher_Candlewick_Press ;
+    library:hasTitle "Kiss Good Night"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1984 .
+
+library:book_OL3267304W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL532838A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9780262510455"^^xsd:string ;
+    library:hasPublisher library:publisher_MIT_Press ;
+    library:hasTitle "Structure and Interpretation of Computer Programs (SICP)"^^xsd:string ;
+    library:numberOfPages "86"^^xsd:string ;
+    library:publicationYear 1985 .
+
+library:book_OL3292376W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL538456A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "1556153376"^^xsd:string ;
+    library:hasPublisher library:publisher_Microsoft_Press ;
+    library:hasTitle "Running MS-DOS 20th Anniversary Edition"^^xsd:string ;
+    library:numberOfPages "573"^^xsd:string ;
+    library:publicationYear 1984 .
+
+library:book_OL3489778W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL582563A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9780262326605"^^xsd:string ;
+    library:hasPublisher library:publisher_MIT_Press ;
+    library:hasTitle "Using MPI"^^xsd:string ;
+    library:numberOfPages "336"^^xsd:string ;
+    library:publicationYear 1994 .
+
+library:book_OL381550W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL13066A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9798860115514"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_published ;
+    library:hasTitle "The Island of Dr. Moreau"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1896 .
+
+library:book_OL39108W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL19441A ;
+    library:hasGenre library:genre_mystery_and_detective_stories,
+        library:genre_science_fiction ;
+    library:hasISBN "9781957240237"^^xsd:string ;
+    library:hasPublisher library:publisher_Warbler_Press ;
+    library:hasTitle "The Secret Agent"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1907 .
+
+library:book_OL4096462W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL767429A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9781566562140"^^xsd:string ;
+    library:hasPublisher library:publisher_Crocodile_Books ;
+    library:hasTitle "To Bed...or Else!"^^xsd:string ;
+    library:numberOfPages "32"^^xsd:string ;
+    library:publicationYear 1991 .
+
+library:book_OL4104767W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL769457A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9781497582378"^^xsd:string ;
+    library:hasPublisher library:publisher_CreateSpace_Independent_Publishing_Platform ;
+    library:hasTitle "The Moon Pool"^^xsd:string ;
+    library:numberOfPages "124"^^xsd:string ;
+    library:publicationYear 1919 .
+
+library:book_OL448894W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL25277A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "0425183033"^^xsd:string ;
+    library:hasPublisher library:publisher_Berkley_Jam_Books ;
+    library:hasTitle "Tom Clancy's Net Force"^^xsd:string ;
+    library:numberOfPages "199"^^xsd:string ;
+    library:publicationYear 1998 .
+
+library:book_OL450063W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL25342A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9783940984791"^^xsd:string ;
+    library:hasPublisher library:publisher_Karl_Müller ;
+    library:hasTitle "Frankenstein or The Modern Prometheus"^^xsd:string ;
+    library:numberOfPages "293"^^xsd:string ;
+    library:publicationYear 1818 .
+
+library:book_OL4617640W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL946967A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9798759820611"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_Published ;
+    library:hasTitle "The C Programming Language"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1978 .
+
+library:book_OL471765W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL27695A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9788408204589"^^xsd:string ;
+    library:hasPublisher library:publisher_Booket ;
+    library:hasTitle "Murder in Three Acts"^^xsd:string ;
+    library:numberOfPages "224"^^xsd:string ;
+    library:publicationYear 1934 .
+
+library:book_OL471776W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL27695A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9782702404614"^^xsd:string ;
+    library:hasPublisher library:publisher_Editions_du_Masque ;
+    library:hasTitle "Elephants Can Remember"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1969 .
+
+library:book_OL472215W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL27695A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9788482565415"^^xsd:string ;
+    library:hasPublisher library:publisher_Proa ;
+    library:hasTitle "They Came to Baghdad"^^xsd:string ;
+    library:numberOfPages "1005"^^xsd:string ;
+    library:publicationYear 1951 .
+
+library:book_OL472594W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL27695A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "0600871541"^^xsd:string ;
+    library:hasPublisher library:publisher_Companion_Book_Club ;
+    library:hasTitle "Nemesis"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1970 .
+
+library:book_OL4781294W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL1004780A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9780262531962"^^xsd:string ;
+    library:hasPublisher library:publisher_The_MIT_Press ;
+    library:hasTitle "Introduction to Algorithms"^^xsd:string ;
+    library:numberOfPages "1184"^^xsd:string ;
+    library:publicationYear 1990 .
+
+library:book_OL52114W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL13066A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9781402736889"^^xsd:string ;
+    library:hasPublisher library:publisher_Sterling ;
+    library:hasTitle "The War of the Worlds"^^xsd:string ;
+    library:numberOfPages "160"^^xsd:string ;
+    library:publicationYear 0 .
+
+library:book_OL52151W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL13066A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9781034970163"^^xsd:string ;
+    library:hasPublisher library:publisher_Blurb ;
+    library:hasTitle "When the Sleeper Awakes"^^xsd:string ;
+    library:numberOfPages "232"^^xsd:string ;
+    library:publicationYear 1899 .
+
+library:book_OL52266W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL13066A ;
+    library:hasGenre library:genre_mystery_and_detective_stories,
+        library:genre_science_fiction ;
+    library:hasISBN "9781535272230"^^xsd:string ;
+    library:hasPublisher library:publisher_CreateSpace_Independent_Publishing_Platform ;
+    library:hasTitle "The Invisible Man"^^xsd:string ;
+    library:numberOfPages "190"^^xsd:string ;
+    library:publicationYear 0 .
+
+library:book_OL54147W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL18319A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9788481942743"^^xsd:string ;
+    library:hasPublisher library:publisher_Edicions_Voramar__S_A_ ;
+    library:hasTitle "Tom Sawyer, Detective"^^xsd:string ;
+    library:numberOfPages "104"^^xsd:string ;
+    library:publicationYear 1897 .
+
+library:book_OL547418W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL5116752A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9789991801346"^^xsd:string ;
+    library:hasPublisher library:publisher_Listening_Library ;
+    library:hasTitle "The Napping House (La Casa Adormecida)"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1984 .
+
+library:book_OL6213664W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL1603942A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9780429129674"^^xsd:string ;
+    library:hasPublisher library:publisher_Taylor___Francis_Group ;
+    library:hasTitle "Programming ArcObjects with VBA"^^xsd:string ;
+    library:numberOfPages "360"^^xsd:string ;
+    library:publicationYear 2004 .
+
+library:book_OL64152W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL19728A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9781442015524"^^xsd:string ;
+    library:hasPublisher library:publisher_Paw_Prints_2009_07_10 ;
+    library:hasTitle "Henry and Mudge and the bedtime thumps"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1991 .
+
+library:book_OL68803W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL23624A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "0060759046"^^xsd:string ;
+    library:hasPublisher library:publisher_HarperFestival ;
+    library:hasTitle "Biscuit Board Book (Biscuit)"^^xsd:string ;
+    library:numberOfPages "191"^^xsd:string ;
+    library:publicationYear 1996 .
+
+library:book_OL726779W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL58582A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "0803880464"^^xsd:string ;
+    library:hasPublisher library:publisher_Hastings_House ;
+    library:hasTitle "Wynken, Blynken, and Nod"^^xsd:string ;
+    library:numberOfPages "24"^^xsd:string ;
+    library:publicationYear 1949 .
+
+library:book_OL74253W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL4401825A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "0060254424"^^xsd:string ;
+    library:hasPublisher library:publisher_Harper_Arco_Iris ;
+    library:hasTitle "Bedtime for Frances"^^xsd:string ;
+    library:numberOfPages "31"^^xsd:string ;
+    library:publicationYear 1960 .
+
+library:book_OL74502W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL44633A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9781722067830"^^xsd:string ;
+    library:hasPublisher library:publisher_CreateSpace_Independent_Publishing_Platform ;
+    library:hasTitle "The Iron Heel"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1907 .
+
+library:book_OL758361W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL62134A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "0878357831"^^xsd:string ;
+    library:hasPublisher library:publisher_Boye___Fraser_Pub__Co_ ;
+    library:hasTitle "Learning to use microcomputer applications"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1992 .
+
+library:book_OL85892W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL31727A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9798673684498"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_Published ;
+    library:hasTitle "Dracula"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1897 .
+
+library:book_OL88678W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL3321665A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9781443153591"^^xsd:string ;
+    library:hasPublisher library:publisher_Scholastic_Canada__Limited ;
+    library:hasTitle "Mortimer (Classic Munsch)"^^xsd:string ;
+    library:numberOfPages "24"^^xsd:string ;
+    library:publicationYear 1983 .
+
+library:borrowedBook a rdf:Property ;
+    rdfs:domain library:Loan ;
+    rdfs:range library:Book .
+
+library:borrower a rdf:Property ;
+    rdfs:domain library:Loan ;
+    rdfs:range library:User .
+
+library:deathYear a rdf:Property ;
+    rdfs:domain library:Author ;
+    rdfs:range xsd:integer .
+
+library:hasAuthor a rdf:Property ;
+    rdfs:domain library:Book ;
+    rdfs:range library:Author .
+
+library:hasGenre a rdf:Property ;
+    rdfs:domain library:Book ;
+    rdfs:range library:Genre .
+
+library:hasISBN a rdf:Property ;
+    rdfs:domain library:Book ;
+    rdfs:range xsd:string .
+
+library:hasPublisher a rdf:Property ;
+    rdfs:domain library:Book ;
+    rdfs:range library:Publisher .
+
+library:hasTitle a rdf:Property ;
+    rdfs:domain library:Book ;
+    rdfs:range xsd:string .
+
+library:loanDate a rdf:Property ;
+    rdfs:domain library:Loan ;
+    rdfs:range xsd:date .
+
+library:loan_21 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL2645732W ;
+    library:borrower library:user_8 ;
+    library:loanDate "2025-02-22"^^xsd:date ;
+    library:returnDate "2025-04-26"^^xsd:date .
+
+library:loan_22 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL471943W ;
+    library:borrower library:user_11 ;
+    library:loanDate "2024-10-02"^^xsd:date ;
+    library:returnDate "2024-12-28"^^xsd:date .
+
+library:loan_23 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL79049W ;
+    library:borrower library:user_13 ;
+    library:loanDate "2024-10-21"^^xsd:date ;
+    library:returnDate "2025-02-12"^^xsd:date .
+
+library:loan_24 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL64365W ;
+    library:borrower library:user_38 ;
+    library:loanDate "2025-05-07"^^xsd:date ;
+    library:returnDate "2025-05-17"^^xsd:date .
+
+library:loan_25 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL17451852W ;
+    library:borrower library:user_1 ;
+    library:loanDate "2024-11-12"^^xsd:date ;
+    library:returnDate "2025-03-17"^^xsd:date .
+
+library:loan_26 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL1417907W ;
+    library:borrower library:user_44 ;
+    library:loanDate "2024-09-08"^^xsd:date ;
+    library:returnDate "2024-10-20"^^xsd:date .
+
+library:loan_27 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL5720022W ;
+    library:borrower library:user_17 ;
+    library:loanDate "2024-11-22"^^xsd:date ;
+    library:returnDate "2025-03-19"^^xsd:date .
+
+library:loan_28 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL407476W ;
+    library:borrower library:user_21 ;
+    library:loanDate "2025-01-02"^^xsd:date ;
+    library:returnDate "2025-05-21"^^xsd:date .
+
+library:loan_29 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL69612W ;
+    library:borrower library:user_6 ;
+    library:loanDate "2025-02-09"^^xsd:date ;
+    library:returnDate "2025-05-25"^^xsd:date .
+
+library:loan_30 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL151798W ;
+    library:borrower library:user_40 ;
+    library:loanDate "2025-04-22"^^xsd:date ;
+    library:returnDate "2025-04-30"^^xsd:date .
+
+library:loan_31 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL282868W ;
+    library:borrower library:user_2 ;
+    library:loanDate "2025-05-08"^^xsd:date ;
+    library:returnDate "2025-05-28"^^xsd:date .
+
+library:loan_32 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL1418128W ;
+    library:borrower library:user_9 ;
+    library:loanDate "2025-02-26"^^xsd:date ;
+    library:returnDate "2025-05-20"^^xsd:date .
+
+library:loan_33 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL151866W ;
+    library:borrower library:user_16 ;
+    library:loanDate "2025-04-07"^^xsd:date ;
+    library:returnDate "2025-05-30"^^xsd:date .
+
+library:loan_34 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL262496W ;
+    library:borrower library:user_8 ;
+    library:loanDate "2024-12-29"^^xsd:date ;
+    library:returnDate "2025-01-10"^^xsd:date .
+
+library:loan_35 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL1099479W ;
+    library:borrower library:user_1 ;
+    library:loanDate "2025-03-16"^^xsd:date ;
+    library:returnDate "2025-03-24"^^xsd:date .
+
+library:loan_36 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL18417W ;
+    library:borrower library:user_22 ;
+    library:loanDate "2024-11-13"^^xsd:date ;
+    library:returnDate "2025-05-15"^^xsd:date .
+
+library:loan_37 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL15829487W ;
+    library:borrower library:user_43 ;
+    library:loanDate "2024-10-23"^^xsd:date ;
+    library:returnDate "2024-11-04"^^xsd:date .
+
+library:loan_38 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL52267W ;
+    library:borrower library:user_29 ;
+    library:loanDate "2025-02-04"^^xsd:date ;
+    library:returnDate "2025-04-08"^^xsd:date .
+
+library:loan_39 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL2861310W ;
+    library:borrower library:user_9 ;
+    library:loanDate "2025-04-07"^^xsd:date ;
+    library:returnDate "2025-05-24"^^xsd:date .
+
+library:loan_40 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL2752745W ;
+    library:borrower library:user_11 ;
+    library:loanDate "2024-08-18"^^xsd:date ;
+    library:returnDate "2025-01-18"^^xsd:date .
+
+library:loan_41 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL7012249W ;
+    library:borrower library:user_26 ;
+    library:loanDate "2025-04-01"^^xsd:date ;
+    library:returnDate "2025-04-13"^^xsd:date .
+
+library:loan_42 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL262438W ;
+    library:borrower library:user_4 ;
+    library:loanDate "2024-08-10"^^xsd:date ;
+    library:returnDate "2025-05-05"^^xsd:date .
+
+library:loan_43 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL650919W ;
+    library:borrower library:user_21 ;
+    library:loanDate "2024-06-25"^^xsd:date ;
+    library:returnDate "2024-07-25"^^xsd:date .
+
+library:loan_44 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL79050W ;
+    library:borrower library:user_27 ;
+    library:loanDate "2024-06-02"^^xsd:date ;
+    library:returnDate "2024-11-01"^^xsd:date .
+
+library:loan_45 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL257263W ;
+    library:borrower library:user_30 ;
+    library:loanDate "2025-03-21"^^xsd:date ;
+    library:returnDate "2025-03-22"^^xsd:date .
+
+library:loan_46 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL1418137W ;
+    library:borrower library:user_12 ;
+    library:loanDate "2025-04-02"^^xsd:date ;
+    library:returnDate "2025-04-09"^^xsd:date .
+
+library:loan_47 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL2960016W ;
+    library:borrower library:user_31 ;
+    library:loanDate "2025-01-16"^^xsd:date ;
+    library:returnDate "2025-02-13"^^xsd:date .
+
+library:loan_48 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL81629W ;
+    library:borrower library:user_9 ;
+    library:loanDate "2025-01-18"^^xsd:date ;
+    library:returnDate "2025-05-02"^^xsd:date .
+
+library:loan_49 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL970122W ;
+    library:borrower library:user_18 ;
+    library:loanDate "2024-11-12"^^xsd:date ;
+    library:returnDate "2025-01-22"^^xsd:date .
+
+library:loan_50 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL2732654W ;
+    library:borrower library:user_20 ;
+    library:loanDate "2025-02-16"^^xsd:date ;
+    library:returnDate "2025-03-26"^^xsd:date .
+
+library:loan_51 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL9242045W ;
+    library:borrower library:user_34 ;
+    library:loanDate "2025-01-04"^^xsd:date ;
+    library:returnDate "2025-02-22"^^xsd:date .
+
+library:loan_52 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL118388W ;
+    library:borrower library:user_22 ;
+    library:loanDate "2024-09-14"^^xsd:date ;
+    library:returnDate "2025-02-19"^^xsd:date .
+
+library:loan_53 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL1970690W ;
+    library:borrower library:user_31 ;
+    library:loanDate "2025-02-10"^^xsd:date ;
+    library:returnDate "2025-05-07"^^xsd:date .
+
+library:loan_54 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL151883W ;
+    library:borrower library:user_5 ;
+    library:loanDate "2025-03-16"^^xsd:date ;
+    library:returnDate "2025-05-23"^^xsd:date .
+
+library:loan_55 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL1100007W ;
+    library:borrower library:user_29 ;
+    library:loanDate "2024-09-06"^^xsd:date ;
+    library:returnDate "2024-12-10"^^xsd:date .
+
+library:loan_56 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL6222001W ;
+    library:borrower library:user_34 ;
+    library:loanDate "2025-01-12"^^xsd:date ;
+    library:returnDate "2025-01-14"^^xsd:date .
+
+library:loan_57 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL7957316W ;
+    library:borrower library:user_28 ;
+    library:loanDate "2024-08-02"^^xsd:date ;
+    library:returnDate "2024-12-08"^^xsd:date .
+
+library:loan_58 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL58402W ;
+    library:borrower library:user_32 ;
+    library:loanDate "2025-04-28"^^xsd:date ;
+    library:returnDate "2025-05-25"^^xsd:date .
+
+library:loan_59 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL1099513W ;
+    library:borrower library:user_42 ;
+    library:loanDate "2025-03-09"^^xsd:date ;
+    library:returnDate "2025-04-02"^^xsd:date .
+
+library:loan_60 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL8019573W ;
+    library:borrower library:user_29 ;
+    library:loanDate "2025-04-11"^^xsd:date ;
+    library:returnDate "2025-05-22"^^xsd:date .
+
+library:name a rdf:Property ;
+    rdfs:range xsd:string .
+
+library:publicationYear a rdf:Property ;
+    rdfs:domain library:Book ;
+    rdfs:range xsd:integer .
+
+library:returnDate a rdf:Property ;
+    rdfs:domain library:Loan ;
+    rdfs:range xsd:date .
+
+library:userEmail a rdf:Property ;
+    rdfs:domain library:User ;
+    rdfs:range xsd:string .
+
+library:user_14 a library:User,
+        owl:NamedIndividual ;
+    library:name "Jessica Taylor" ;
+    library:userEmail "jessica.taylor@example.com" .
+
+library:user_15 a library:User,
+        owl:NamedIndividual ;
+    library:name "Daniel Miller" ;
+    library:userEmail "daniel.miller@example.com" .
+
+library:user_19 a library:User,
+        owl:NamedIndividual ;
+    library:name "António Oliveira" ;
+    library:userEmail "antónio.oliveira@example.com" .
+
+library:user_23 a library:User,
+        owl:NamedIndividual ;
+    library:name "João Ferreira" ;
+    library:userEmail "joão.ferreira@example.com" .
+
+library:user_3 a library:User,
+        owl:NamedIndividual ;
+    library:name "Michael Brown" ;
+    library:userEmail "michael.brown@example.com" .
+
+library:user_33 a library:User,
+        owl:NamedIndividual ;
+    library:name "Diogo Pinto" ;
+    library:userEmail "diogo.pinto@example.com" .
+
+library:user_35 a library:User,
+        owl:NamedIndividual ;
+    library:name "Tomás Teixeira" ;
+    library:userEmail "tomás.teixeira@example.com" .
+
+library:user_36 a library:User,
+        owl:NamedIndividual ;
+    library:name "Madalena Moreira" ;
+    library:userEmail "madalena.moreira@example.com" .
+
+library:user_37 a library:User,
+        owl:NamedIndividual ;
+    library:name "Rodrigo Nunes" ;
+    library:userEmail "rodrigo.nunes@example.com" .
+
+library:user_39 a library:User,
+        owl:NamedIndividual ;
+    library:name "Afonso Vieira" ;
+    library:userEmail "afonso.vieira@example.com" .
+
+library:user_41 a library:User,
+        owl:NamedIndividual ;
+    library:name "Duarte Araújo" ;
+    library:userEmail "duarte.araújo@example.com" .
+
+library:author_OL1004780A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Thomas H. Cormen"^^xsd:string .
+
+library:author_OL1127754A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Diana Weynand"^^xsd:string .
+
+library:author_OL118077A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """George Orwell, originally born as Eric Arthur Blair, was an English novelist and journalist. His work is marked by keen intelligence and wit, a profound awareness of social injustice, an intense, revolutionary opposition to totalitarianism, a passion for clarity in language and a belief in democratic socialism. ([Source][1].)\r
+\r
+[1]:https://en.wikipedia.org/wiki/George_Orwell"""^^xsd:string ;
+    library:birthYear 1903 ;
+    library:deathYear 1950 ;
+    library:name "George Orwell"^^xsd:string .
+
+library:author_OL1391085A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """an American novelist and film producer. She is best known for writing the vampire romance series Twilight.\r
+Meyer was the bestselling author of 2008 and 2009 in the U.S. \r
+Meyer received the 2009 Children's Book of the Year award from the British Book Awards for Breaking Dawn, the Twilight series finale.\r
+\r
+Stephenie Morgan was born on December 24, 1973, in Hartford, Connecticut, the second of six children to financial officer Stephen Morgan and homemaker Candy Morgan. Meyer was raised in Phoenix, Arizona, and attended Chaparral High School in Scottsdale, Arizona. In 1992, Meyer won a National Merit Scholarship, which helped fund her undergraduate studies at Brigham Young University in Provo, Utah, where she received a BA in English Literature in 1997. Although she began and finished her degree at BYU, she took classes at Arizona State University in fall 1996 and spring 1997.\r
+\r
+Meyer met her future husband, Christian "Pancho" Meyer, in Arizona when they were both children. They married in 1994, when Meyer was twenty-one.Together, they have sons who Christian Meyer retired from his job as an auditor to take care of full time.\r
+\r
+Before writing her first novel, Twilight, Meyer considered going to law school because she felt she had no chance of becoming a writer. She later noted that the birth of her oldest son, Gabe, in 1997 changed her mind: "Once I had Gabe, I just wanted to be his mom." Before becoming an author, Meyer's only professional work was as a receptionist at a property company."""^^xsd:string ;
+    library:birthYear 1973 ;
+    library:name "Stephenie Meyer"^^xsd:string .
+
+library:author_OL1391152A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "Anna Dewdney has illustrated over twenty-five books for both children and adults. The first book that she both wrote and illustrated (Llama Llama Red Pajama) was published in 2005."^^xsd:string ;
+    library:birthYear 1965 ;
+    library:deathYear 2016 ;
+    library:name "Anna Dewdney"^^xsd:string .
+
+library:author_OL1425504A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "David Ezra Stein"^^xsd:string .
+
+library:author_OL1603942A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Kang-Tsung Chang"^^xsd:string .
+
+library:author_OL1607441A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Luke Ahearn"^^xsd:string .
+
+library:author_OL18053A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "Edith Nesbit (married name Edith Bland) was an English author and poet; she published her books for children under the name of E. Nesbit."^^xsd:string ;
+    library:birthYear 1858 ;
+    library:deathYear 1924 ;
+    library:name "E. Nesbit"^^xsd:string .
+
+library:author_OL18319A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Mark Twain, born Samuel Langhorne Clemens, was a prolific American author and humorist. Twain is best known for his novels Adventures of Huckleberry Finn  (1884), which has been called "the Great American Novel", and The Adventures of Tom Sawyer  (1876). He is extensively quoted. Twain was a friend to presidents, artists, industrialists, and European royalty. ([Source][1].) \r
+\r
+[1]:http://en.wikipedia.org/wiki/Mark_Twain"""^^xsd:string ;
+    library:birthYear 1835 ;
+    library:deathYear 1910 ;
+    library:name "Mark Twain"^^xsd:string .
+
+library:author_OL18524A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "Gilbert Keith Chesterton was an English writer, lay theologian, poet, philosopher, dramatist, journalist, orator, literary and art critic, biographer, and Christian apologist."^^xsd:string ;
+    library:birthYear 1874 ;
+    library:deathYear 1936 ;
+    library:name "Chesterton, G. K."^^xsd:string .
+
+library:author_OL18722A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "\"Jane Hyatt Yolen (born February 11, 1939) is an American writer of fantasy, science fiction, and children's books. She is the author or editor of more than 280 books. Her  short story Sister Emily's Lightship won the Nebula Award.\" - Wikipedia"^^xsd:string ;
+    library:birthYear 1939 ;
+    library:name "Jane Yolen"^^xsd:string .
+
+library:author_OL19441A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Joseph Conrad was a Polish-born British novelist, who became a British subject in 1886. He is regarded as one of the greatest novelists in English though he did not speak the language fluently until he was in his twenties (and then always with a marked Polish accent). He wrote stories and novels, predominantly with a nautical or seaboard setting, that depict trials of the human spirit by the demands of duty and honor. ([Source][1].)\r
+\r
+[1]:https://en.wikipedia.org/wiki/Joseph_Conrad"""^^xsd:string ;
+    library:birthYear 1857 ;
+    library:deathYear 1924 ;
+    library:name "Conrad, Joseph"^^xsd:string .
+
+library:author_OL19728A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Cynthia Rylant is an American author and librarian. She has written more than 100 children's books, including works of fiction (picture books, short stories and novels), nonfiction, and poetry. Several of her books have won awards, including her novel Missing May, which won the 1993 Newbery Medal, and A Fine White Dust which was a 1987 Newbery Honor book. Two of her books are Caldecott Honor Books.\r
+\r
+Many of Rylant's books are about her childhood in Appalachia, her pets, the joys and hardships of family life, and the feelings of loners. Many of her books are written in series. - wikipedia"""^^xsd:string ;
+    library:birthYear 1954 ;
+    library:name "Cynthia Rylant"^^xsd:string .
+
+library:author_OL19767A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "Aldous Leonard Huxley (26 July 1894 – 22 November 1963) was an English writer and philosopher. He wrote nearly 50 books, both novels and non-fiction works, as well as wide-ranging essays, narratives, and poems."^^xsd:string ;
+    library:birthYear 1894 ;
+    library:deathYear 1963 ;
+    library:name "Aldous Huxley"^^xsd:string .
+
+library:author_OL19981A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Stephen Edwin King (born September 21, 1947) is an American author of horror, supernatural fiction, suspense, crime, science-fiction, and fantasy novels. His books have sold more than 350 million copies, and many have been adapted into films, television series, miniseries, and comic books. King has published 63 novels, including seven under the pen name Richard Bachman, and five non-fiction books. He has also written approximately 200 short stories, most of which have been published in book collections.\r
+\r
+King has received Bram Stoker Awards, World Fantasy Awards, and British Fantasy Society Awards. In 2003, the National Book Foundation awarded him the Medal for Distinguished Contribution to American Letters. He has also received awards for his contribution to literature for his entire bibliography, such as the 2004 World Fantasy Award for Life Achievement and the 2007 Grand Master Award from the Mystery Writers of America. In 2015, he was awarded with a National Medal of Arts from the U.S. National Endowment for the Arts for his contributions to literature. He has been described as the "King of Horror", a play on his surname and a reference to his high standing in pop culture."""^^xsd:string ;
+    library:birthYear 1947 ;
+    library:name "King, Stephen"^^xsd:string .
+
+library:author_OL20585A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Edwin Abbott Abbott (20 December 1838 – 12 October 1926), was an English schoolmaster and theologian, is best known as the author of the mathematical satire and religious allegory *Flatland* (1884).\r
+\r
+**Source**: [Edwin Abbott Abbott](https://en.wikipedia.org/wiki/Edwin_Abbott_Abbott) on Wikipedia."""^^xsd:string ;
+    library:birthYear 1838 ;
+    library:deathYear 1926 ;
+    library:name "Edwin Abbott Abbott"^^xsd:string .
+
+library:author_OL20593A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "British author"^^xsd:string ;
+    library:birthYear 1953 ;
+    library:name "Sally Grindley"^^xsd:string .
+
+library:author_OL216660A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1936 ;
+    library:deathYear 2019 ;
+    library:name "John Burningham"^^xsd:string .
+
+library:author_OL22098A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Lewis Carroll is well known throughout the world as the author of  Alice's Adventures in Wonderland and  Through the Looking-Glass. Behind the famous pseudonym was Charles Lutwidge Dodgson, a mathematical lecturer at Oxford University with remarkably diverse talents. ([Source][1].)\r
+\r
+\r
+  [1]: http://lewiscarrollsociety.org.uk/pages/lewiscarroll/life.html"""^^xsd:string ;
+    library:birthYear 1832 ;
+    library:deathYear 1898 ;
+    library:name "Carroll, Lewis"^^xsd:string .
+
+library:author_OL229501A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1938 ;
+    library:name "Donald Ervin Knuth"^^xsd:string .
+
+library:author_OL23082A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1824 ;
+    library:deathYear 1905 ;
+    library:name "MacDonald, George"^^xsd:string .
+
+library:author_OL233814A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Enid Mary Blyton was a British children's writer known as both Enid Blyton and Mary Pollock. She was one of the most successful children's storytellers of the twentieth century.<sup>[1][1]</sup>\r
+\r
+\r
+  [1]: http://en.wikipedia.org/wiki/Enid_Blyton"""^^xsd:string ;
+    library:birthYear 1897 ;
+    library:deathYear 1968 ;
+    library:name "Enid Blyton"^^xsd:string .
+
+library:author_OL23431A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Lyman Frank Baum was a US author, poet, playwright, actor, and independent filmmaker best known today as the creator - along with illustrator WW Denslow - of one of the most popular books in US children's literature, The Wonderful Wizard of Oz. - [Wikipedia][1]\r
+\r
+\r
+  [1]: http://en.wikipedia.org/wiki/L._Frank_Baum"""^^xsd:string ;
+    library:birthYear 1856 ;
+    library:deathYear 1919 ;
+    library:name "Baum, L. Frank"^^xsd:string .
+
+library:author_OL23624A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "Alyssa Satin Capucilli is the author of the popular books about the little yellow puppy named Biscuit. She lives in Hastings-on-Hudson, New York."^^xsd:string ;
+    library:birthYear 1957 ;
+    library:name "Alyssa Satin Capucilli"^^xsd:string .
+
+library:author_OL236786A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Andrew Stuart "Andy" Tanenbaum (sometimes referred to by the handle ast) (born March 16, 1944) is an American computer scientist and professor emeritus of computer science at the Vrije Universiteit, Amsterdam in the Netherlands.\r
+\r
+He is best known as the author of MINIX, a free Unix-like operating system for teaching purposes, and for his computer science textbooks, regarded as standard texts in the field. He regards his teaching job as his most important work. Since 2004 he has operated Electoral-vote.com, a website dedicated to analysis of polling data in federal elections in the United States."""^^xsd:string ;
+    library:birthYear 1944 ;
+    library:name "Andrew S. Tanenbaum"^^xsd:string .
+
+library:author_OL237115A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "Arnold Stark Lobel (May 22, 1933 – December 4, 1987) was an American author of children's books, including the Frog and Toad series and Mouse Soup. He wrote and illustrated these picture books as well as Fables, a 1981 Caldecott Medal winner for best-illustrated U.S. picture book. Lobel also illustrated books by other writers, including Sam the Minuteman by Nathaniel Benchley published in 1969."^^xsd:string ;
+    library:birthYear 1933 ;
+    library:deathYear 1987 ;
+    library:name "Lobel, Arnold."^^xsd:string .
+
+library:author_OL23767A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Frances Hodgson Burnett was best known as an English playwright and author. Frances Eliza Hodgson was born on November 24, 1849, at Cheetham Hill, Manchester, England, to Eliza Boond and Edwin Hodgson. She was the middle child of five, with two older brothers and two younger sisters.\r
+\r
+Frances grew up in a comfortable home. Mr. Hodgson sold brass goods to upper class households, and the family had a maid, a nurse-maid, and a horse and carriage.  However, in the early 1850's when Frances was only three or four years old, her father died of a stroke, and the family was forced to sell their house and move. Her mother carried on the business, and Frances was often left in the care of her grandmother, who taught her to read. Her future as a writer might have begun here.\r
+\r
+When she was about sixteen, the family moved to Knoxville, Tennessee. From then until she was nineteen, Frances supported them by selling her stories to magazines.\r
+\r
+In September 1873, she married Swan Burnett. The couple moved to Paris for two years and had there two sons. In 1892, following the death her son Lionel from tuberculosis, Frances suffered severe depression. In 1898, she divorced Swan Burnett and remarried two years later; this second marriage only lasted a year.\r
+\r
+Frances settled in Long Island, New York, where she lived for the rest of her life. She died in 1924 and rests in Roslyn Cemetery in Greenvale, New York, next to her other son, Vivian."""^^xsd:string ;
+    library:birthYear 1849 ;
+    library:deathYear 1924 ;
+    library:name "Frances Hodgson Burnett"^^xsd:string .
+
+library:author_OL23891A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Francesca Lia Block"^^xsd:string .
+
+library:author_OL24137A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Ray Bradbury is one of those rare individuals whose writing has changed the way people think. His more than five hundred published works -- short stories, novels, plays, screenplays, television scripts, and verse -- exemplify the American imagination at its most creative. \r
+\r
+Once read, his words are never forgotten. His best-known and most beloved books, *The Martian Chronicles*, *The Illustrated Man*, *Fahrenheit 451* and *Something Wicked This Way Comes*, are masterworks that readers carry with them over a lifetime. His timeless, constant appeal to audiences young and old has proven him to be one of the truly classic authors of the 20th Century -- and the 21st. \r
+\r
+In recognition of his stature in the world of literature and the impact he has had on so many for so many years, Bradbury was awarded the National Book Foundation's 2000 Medal for Distinguished Contribution to American Letters, an the National Medal of Arts in 2004. \r
+\r
+([Source][1])\r
+\r
+\r
+  [1]: http://www.raybradbury.com/about.html"""^^xsd:string ;
+    library:birthYear 1920 ;
+    library:deathYear 2012 ;
+    library:name "Ray Bradbury"^^xsd:string .
+
+library:author_OL2493250A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1957 ;
+    library:name "Axel Scheffler"^^xsd:string .
+
+library:author_OL251874A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Institute Of Electrical and Electronics Engineers"^^xsd:string .
+
+library:author_OL25277A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Thomas Leo "Tom" Clancy Jr. is an American author, best known for his technically detailed espionage and military science storylines set during and in the aftermath of the Cold War, and several video games which he did not work on, but which bear his name for licensing and promotional purposes. His name is also a brand for similar movie scripts written by ghost writers and many series of non-fiction books on military subjects and merged biographies of key leaders. He is also part-owner and Vice Chairman of Community Activities and Public Affairs of the Baltimore Orioles, a Major League Baseball team.\r
+\r
+([Source][1])\r
+\r
+\r
+  [1]: http://en.wikipedia.org/wiki/Tom_Clancy"""^^xsd:string ;
+    library:birthYear 1947 ;
+    library:deathYear 2013 ;
+    library:name "Tom Clancy"^^xsd:string .
+
+library:author_OL25342A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Mary Wollstonecraft Shelley was a British novelist, short story writer, dramatist, essayist, biographer, and travel writer, best known for her Gothic novel Frankenstein: or, The Modern Prometheus (1818). She also edited and promoted the works of her husband, the Romantic poet and philosopher Percy Bysshe Shelley. Her father was the political philosopher  William Godwin, and her mother was the philosopher and feminist Mary Wollstonecraft. ([Source][1].)\r
+\r
+[1]: https://en.wikipedia.org/wiki/Mary_Shelley"""^^xsd:string ;
+    library:birthYear 1797 ;
+    library:deathYear 1851 ;
+    library:name "Mary Wollstonecraft Shelley"^^xsd:string .
+
+library:author_OL254019A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Kris A. Jamsa"^^xsd:string .
+
+library:author_OL25963A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "Robert Louis Stevenson (born Robert Lewis Balfour Stevenson; 13 November 1850 – 3 December 1894) was a Scottish novelist, essayist, poet and travel writer. He is best known for works such as Treasure Island, Strange Case of Dr Jekyll and Mr Hyde, Kidnapped and A Child's Garden of Verses."^^xsd:string ;
+    library:birthYear 1850 ;
+    library:deathYear 1894 ;
+    library:name "Robert Louis Stevenson"^^xsd:string .
+
+library:author_OL2632008A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1888 ;
+    library:deathYear 1959 ;
+    library:name "Chandler, Raymond"^^xsd:string .
+
+library:author_OL2655160A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Inc. Wordware Pub."^^xsd:string .
+
+library:author_OL2669746A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Apple Computer Inc."^^xsd:string .
+
+library:author_OL27541A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Amy Hest"^^xsd:string .
+
+library:author_OL2890321A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "Swedish computer scientist and author"^^xsd:string ;
+    library:birthYear 1935 ;
+    library:deathYear 2025 ;
+    library:name "Torgil Ĕkman"^^xsd:string .
+
+library:author_OL30241A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Yevgeny Ivanovich Zamyatina, sometimes anglicized as Eugene Zamyatin, was a Russian author of science fiction, philosophy, literary criticism, and political satire.\r
+Zamyatin is the author of a dystopian novel "Мы" (We) (1921).\r
+George Orwell believed that Aldous Huxley's Brave New World (1932) must be partly derived from We.\r
+Kurt Vonnegut said that in writing Player Piano (1952) he "cheerfully ripped off the plot of Brave New World, whose plot had been cheerfully ripped off from Yevgeny Zamyatin's We."""^^xsd:string ;
+    library:birthYear 1884 ;
+    library:deathYear 1937 ;
+    library:name "Evgeniĭ Ivanovich Zami͡atin"^^xsd:string .
+
+library:author_OL3098140A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Steve Rabin"^^xsd:string .
+
+library:author_OL31727A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1847 ;
+    library:deathYear 1912 ;
+    library:name "Bram Stoker"^^xsd:string .
+
+library:author_OL32625A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1941 ;
+    library:name "Martin Waddell"^^xsd:string .
+
+library:author_OL3299689A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Peachpit Press"^^xsd:string .
+
+library:author_OL3321665A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Robert Norman Munsch was born in Pittsburgh, Pennsylvania.  In 1969, he received a B.A. degree in History from Fordham University.  In 1971 he received a M.A. degree in Anthropology from Boston University.  After graduating, he studied to become a Jesuit priest, but his experiences in orphanages and day care centers led him to decide he would rather work with children. In 1973, he received a Master of Education in Child Studies from Tufts University. In 1975 he moved to Canada to work at the preschool at the University of Guelph in Guelph, Ontario. He also taught in the Department of Family Studies at the University of Guelph as a lecturer and as an assistant professor. In Guelph, he was encouraged to publish the many stories he made up for the children he worked with. His first book, Mud Puddle, was published in 1979.\r
+\r
+After his wife delivered two successive stillborn babies, he wrote his most famous book, Love You Forever (1986). He and his wife have since adopted three children.\r
+\r
+In August 2008, Munsch suffered a stroke that affected his speech. To date, he has written over 50 children's books."""^^xsd:string ;
+    library:birthYear 1945 ;
+    library:name "Robert N. Munsch"^^xsd:string .
+
+library:author_OL34796A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1943 ;
+    library:deathYear 2020 ;
+    library:name "Sam McBratney"^^xsd:string .
+
+library:author_OL34842A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "author of computing books, Idaho politician"^^xsd:string ;
+    library:birthYear 1960 ;
+    library:name "Dan Gookin"^^xsd:string .
+
+library:author_OL385634A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Hossein Bidgoli"^^xsd:string .
+
+library:author_OL386782A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Ted Dewan"^^xsd:string .
+
+library:author_OL398099A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Steven C. Chapra"^^xsd:string .
+
+library:author_OL400353A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "Molly Bang Garrett, best known as Molly Bang, is an American children's illustrator and writer."^^xsd:string ;
+    library:birthYear 1943 ;
+    library:name "Molly Bang"^^xsd:string .
+
+library:author_OL422557A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "A. Rushton"^^xsd:string .
+
+library:author_OL431292A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1938 ;
+    library:name "Ross, Tony."^^xsd:string .
+
+library:author_OL4401825A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "Russell Conwell Hoban was an American expatriate writer. His works span many genres, including fantasy, science fiction, mainstream fiction, magical realism, poetry, and children's books. He lived in London, England, from 1969 until his death."^^xsd:string ;
+    library:birthYear 1925 ;
+    library:deathYear 2011 ;
+    library:name "Russell Hoban"^^xsd:string .
+
+library:author_OL44633A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """John Griffith London (born John Griffith Chaney; January 12, 1876 – November 22, 1916) was an American novelist, journalist, and social activist. A pioneer in the world of commercial magazine fiction, he was one of the first writers to become a worldwide celebrity and earn a large fortune from writing. He was also an innovator in the genre that would later become known as science fiction.\r
+\r
+His most famous works include *The Call of the Wild* and *White Fang*, both set in the Klondike Gold Rush, as well as the short stories "To Build a Fire", "An Odyssey of the North", and "Love of Life". He also wrote about the South Pacific in stories such as "The Pearls of Parlay", and "The Heathen".\r
+\r
+London was part of the radical literary group "The Crowd" in San Francisco and a passionate advocate of unionization, workers' rights, socialism, and eugenics. He wrote several works dealing with these topics, such as his dystopian novel The Iron Heel, his non-fiction exposé *The People of the Abyss*, *The War of the Classes*, and *Before Adam*.\r
+\r
+**Source**: [Jack London](https://en.wikipedia.org/wiki/Jack_London) on Wikipedia."""^^xsd:string ;
+    library:birthYear 1876 ;
+    library:deathYear 1916 ;
+    library:name "Jack London"^^xsd:string .
+
+library:author_OL452099A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1951 ;
+    library:name "Ian Sommerville"^^xsd:string .
+
+library:author_OL453119A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "English writer and illustrator"^^xsd:string ;
+    library:birthYear 1962 ;
+    library:name "Mark Haddon"^^xsd:string .
+
+library:author_OL461522A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1953 ;
+    library:name "Trainor, Timothy N."^^xsd:string .
+
+library:author_OL50556A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "Australian academic and children's writer known for picture books"^^xsd:string ;
+    library:birthYear 1946 ;
+    library:name "Mem Fox"^^xsd:string .
+
+library:author_OL5116752A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1948 ;
+    library:name "Audrey Wood"^^xsd:string .
+
+library:author_OL526870A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1953 ;
+    library:name "Jim Albert"^^xsd:string .
+
+library:author_OL532838A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "American computer scientist"^^xsd:string ;
+    library:birthYear 1947 ;
+    library:name "Harold Abelson"^^xsd:string .
+
+library:author_OL538456A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1939 ;
+    library:name "Van Wolverton"^^xsd:string .
+
+library:author_OL548592A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Roger S. Pressman"^^xsd:string .
+
+library:author_OL582563A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "William Gropp"^^xsd:string .
+
+library:author_OL58582A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Eugene Field, Sr. was an American writer, best known for his children's poetry and humorous essays. Several of his poems were set to music with commercial success. Many of his works were accompanied by paintings from Maxfield Parrish. His former home in St. Louis is now a museum. Parks and several elementary schools throughout the Midwest are named for him.\r
+\r
+Source: Wikipedia"""^^xsd:string ;
+    library:birthYear 1850 ;
+    library:deathYear 1895 ;
+    library:name "Eugene Field"^^xsd:string .
+
+library:author_OL588891A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1934 ;
+    library:name "Robert J. Bent"^^xsd:string .
+
+library:author_OL62134A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Gary Shelly lives in Southern California and now spends his time creating stories instead of writing computer textbooks. His first novel, DYING TO GIVE, explores the quandary of a family struck by an unthinkable tragedy. \r
+\r
+Source: http://garybshelly.com/bio/"""^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Gary B. Shelly"^^xsd:string .
+
+library:author_OL7318005A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "British computer scientist."^^xsd:string ;
+    library:birthYear 1978 ;
+    library:name "Eben Upton"^^xsd:string .
+
+library:author_OL7409817A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Howard Berebon"^^xsd:string .
+
+library:author_OL767429A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 0 ;
+    library:name "Ewa Lipniacka"^^xsd:string .
+
+library:author_OL769457A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "Abraham Grace Merritt was born in Beverly, New Jersey. In 1894, he moved with his family to Philadelphia, Pennsylvania. He worked to become a lawyer, but instead became a journalist. In 1912 he became assistant editor of The American Weekly until 1937, when he became its editor. He also wrote fiction, including eight novels."^^xsd:string ;
+    library:birthYear 1882 ;
+    library:deathYear 1943 ;
+    library:name "Abraham Merritt"^^xsd:string .
+
+library:author_OL7737529A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Baroness Emma Magdolna Rozália Mária Jozefa Borbála "Emmuska" Orczy de Orczi was born in Tarnaörs, Heves County, Hungary, the daughter of composer Baron Felix Orczy and Countess Emma Wass. In 1868, fearing a potential peasant revolution, her parents left Hungary. They lived in Budapest, Brussels, and Paris before settling in London in 1880. Orczy attended West London School of Art and then Heatherley's School of Fine Art.\r
+\r
+In 1894, she married illustrator Montague MacLean Barstow, whom she had met at art school. The couple had very little money, and Orczy started to work with her husband as a translator and an illustrator. In 1899, she had a child, and published her first novel, The Emperor's Candlesticks.\r
+\r
+In 1903, she and her husband coauthored her most famous work, The Scarlet Pimpernel. She went on to write over a dozen sequels to the novel.\r
+\r
+She also created a number of memorable detectives: Lady Molly Robertson-Kirk of Scotland Yard, who heads the "Female Department" (her cases are collected in *Lady Molly of Scotland Yard*, 1910); Monsieur Fernand, a Napoleonic-era secret agent (*The Man in Grey*, 1918); and Patrick Mulligan, a shady attorney (*Skin o' My Tooth*, 1928). Her greatest detective was the Old Man in the Corner, probably the first of the "armchair" detectives. He sits in a chair in a London tea shop, unraveling knots and intricate cases brought to him by Polly Burton, a young reporter. Many of these were later collected in *The Old Man in the Corner* (1909). [Leslie S. Klinger, *In the Shadow of Sherlock Holmes* (2011)]"""^^xsd:string ;
+    library:birthYear 1865 ;
+    library:deathYear 1947 ;
+    library:name "Orczy, Emmuska Orczy"^^xsd:string .
+
+library:author_OL88204A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "German children’s writer"^^xsd:string ;
+    library:birthYear 1899 ;
+    library:deathYear 1974 ;
+    library:name "Erich Kästner"^^xsd:string .
+
+library:author_OL893532A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1945 ;
+    library:name "Don Wood"^^xsd:string .
+
+library:author_OL946967A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1942 ;
+    library:name "Brian W. Kernighan"^^xsd:string .
+
+library:book_OL1099513W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL113611A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9782266091619"^^xsd:string ;
+    library:hasPublisher library:publisher_Pocket ;
+    library:hasTitle "Voyage au Centre de la Terre"^^xsd:string ;
+    library:numberOfPages "487"^^xsd:string ;
+    library:publicationYear 1867 .
+
+library:book_OL1100007W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL113611A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9781788880787"^^xsd:string ;
+    library:hasPublisher library:publisher_Arcturus_Publishing_Ltd ;
+    library:hasTitle "Le Tour du Monde en Quatre-Vingts Jours"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1872 .
+
+library:book_OL118388W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL20585A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9780486272634"^^xsd:string ;
+    library:hasPublisher library:publisher_Courier_Corporation ;
+    library:hasTitle "Flatland"^^xsd:string ;
+    library:numberOfPages "78"^^xsd:string ;
+    library:publicationYear 1884 .
+
+library:book_OL1417907W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL146605A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9798548918666"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_Published ;
+    library:hasTitle "At The Earth's Core And Out Of Time's Abyss"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1914 .
+
+library:book_OL1418128W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL146605A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9798594021822"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_Published ;
+    library:hasTitle "Thuvia, Maid of Mars"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1916 .
+
+library:book_OL1418137W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL146605A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9798586808806"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_Published ;
+    library:hasTitle "The warlord of Mars #3"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1919 .
+
+library:book_OL151866W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL22122A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9780062971241"^^xsd:string ;
+    library:hasPublisher library:publisher_HarperCollins_Publishers ;
+    library:hasTitle "Goodnight Moon 123"^^xsd:string ;
+    library:numberOfPages "30"^^xsd:string ;
+    library:publicationYear 2007 .
+
+library:book_OL151883W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL22122A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "0201091550"^^xsd:string ;
+    library:hasPublisher library:publisher_Young_Scott_Books ;
+    library:hasTitle "A child's good night book"^^xsd:string ;
+    library:numberOfPages "32"^^xsd:string ;
+    library:publicationYear 1943 .
+
+library:book_OL15829487W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL386782A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9780385606226"^^xsd:string ;
+    library:hasPublisher library:publisher_David_Fickling_Books ;
+    library:hasTitle "Bing"^^xsd:string ;
+    library:numberOfPages "39"^^xsd:string ;
+    library:publicationYear 2003 .
+
+library:book_OL17429331W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_15 ;
+    library:hasAuthor library:author_OL526870A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9781138464575"^^xsd:string ;
+    library:hasPublisher library:publisher_Taylor___Francis_Group ;
+    library:hasTitle "Analyzing Baseball Data With R"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 2013 .
+
+library:book_OL18417W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL23431A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9798576051830"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_Published ;
+    library:hasTitle "The Wonderful Wizard of Oz"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1899 .
+
+library:book_OL257263W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL229501A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "0201853922"^^xsd:string ;
+    library:hasPublisher library:publisher_Addison_Wesley ;
+    library:hasTitle "The art of computer programming"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1968 .
+
+library:book_OL262438W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL161167A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9780008484637"^^xsd:string ;
+    library:hasPublisher library:publisher_HarperCollins_Publishers_Limited ;
+    library:hasTitle "The Sign of Four"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1889 .
+
+library:book_OL262496W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL161167A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9781981395729"^^xsd:string ;
+    library:hasPublisher library:publisher_CreateSpace_Independent_Publishing_Platform ;
+    library:hasTitle "A Study in Scarlet"^^xsd:string ;
+    library:numberOfPages "26"^^xsd:string ;
+    library:publicationYear 1887 .
+
+library:book_OL2732654W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL400353A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "0688009069"^^xsd:string ;
+    library:hasPublisher library:publisher_Greenwillow_Books ;
+    library:hasTitle "Ten, nine, eight"^^xsd:string ;
+    library:numberOfPages "24"^^xsd:string ;
+    library:publicationYear 1982 .
+
+library:book_OL2752745W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL403903A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9789802572762"^^xsd:string ;
+    library:hasPublisher library:publisher_Ediciones_Ekare ;
+    library:hasTitle "10 Minutes Till Bedtime"^^xsd:string ;
+    library:numberOfPages "46"^^xsd:string ;
+    library:publicationYear 1998 .
+
+library:book_OL282868W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL254019A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9780078812590"^^xsd:string ;
+    library:hasPublisher library:publisher_McGraw_Hill ;
+    library:hasTitle "DOS"^^xsd:string ;
+    library:numberOfPages "1046"^^xsd:string ;
+    library:publicationYear 1987 .
+
+library:book_OL2829091W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_2 ;
+    library:hasAuthor library:author_OL422557A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9780256067064"^^xsd:string ;
+    library:hasPublisher library:publisher_Irwin ;
+    library:hasTitle "Reconfigurable Processor Array A Bit Sliced Parallel Computer (USA)"^^xsd:string ;
+    library:numberOfPages "144"^^xsd:string ;
+    library:publicationYear 1986 .
+
+library:book_OL2861310W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL431292A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9781783445448"^^xsd:string ;
+    library:hasPublisher library:publisher_Andersen_Press ;
+    library:hasTitle "I Want My Potty"^^xsd:string ;
+    library:numberOfPages "20"^^xsd:string ;
+    library:publicationYear 1986 .
+
+library:book_OL3517771W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_13 ;
+    library:hasAuthor library:author_OL588891A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "0534064620"^^xsd:string ;
+    library:hasPublisher library:publisher_Brooks_Cole_Pub__Co_ ;
+    library:hasTitle "BASIC"^^xsd:string ;
+    library:numberOfPages "398"^^xsd:string ;
+    library:publicationYear 1978 .
+
+library:book_OL4478176W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_14 ;
+    library:hasAuthor library:author_OL893532A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9780785753223"^^xsd:string ;
+    library:hasPublisher library:publisher_Tandem_Library ;
+    library:hasTitle "Piggies"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1991 .
+
+library:book_OL471509W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_5 ;
+    library:hasAuthor library:author_OL27695A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9788467053647"^^xsd:string ;
+    library:hasPublisher library:publisher_Espasa ;
+    library:hasTitle "The A.B.C. Murders"^^xsd:string ;
+    library:numberOfPages "272"^^xsd:string ;
+    library:publicationYear 1936 .
+
+library:book_OL471832W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_4 ;
+    library:hasAuthor library:author_OL27695A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9780008662219"^^xsd:string ;
+    library:hasPublisher library:publisher_HarperCollins_Publishers_Limited ;
+    library:hasTitle "Hallowe'en Party"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1969 .
+
+library:book_OL471943W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL27695A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9789752107502"^^xsd:string ;
+    library:hasPublisher library:publisher_Altin ;
+    library:hasTitle "After the Funeral"^^xsd:string ;
+    library:numberOfPages "320"^^xsd:string ;
+    library:publicationYear 1953 .
+
+library:book_OL5117268W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_19 ;
+    library:hasAuthor library:author_OL1127754A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9780321482525"^^xsd:string ;
+    library:hasPublisher library:publisher_Pearson_Education__Limited ;
+    library:hasTitle "Apple Pro Training Series"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 2003 .
+
+library:book_OL52267W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL13066A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9780553212396"^^xsd:string ;
+    library:hasPublisher library:publisher_Bantam_Classics ;
+    library:hasTitle "The Time Machine"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1895 .
+
+library:book_OL5720022W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL1391085A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9780316193177"^^xsd:string ;
+    library:hasPublisher library:publisher_Little__Brown_Books_for_Young_Readers ;
+    library:hasTitle "Breaking Dawn"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 2008 .
+
+library:book_OL5818196W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_7 ;
+    library:hasAuthor library:author_OL1425504A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9781406340310"^^xsd:string ;
+    library:hasPublisher library:publisher_WALKER_BOOKS_LTD__ ;
+    library:hasTitle "Interrupting chicken"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 2010 .
+
+library:book_OL64365W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL19767A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9787510099373"^^xsd:string ;
+    library:hasPublisher library:publisher_世界图书出版公司 ;
+    library:hasTitle "Brave New World"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1932 .
+
+library:book_OL650919W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL50556A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "1874371504"^^xsd:string ;
+    library:hasPublisher library:publisher_Hazar ;
+    library:hasTitle "Time for Bed"^^xsd:string ;
+    library:numberOfPages "32"^^xsd:string ;
+    library:publicationYear 1993 .
+
+library:book_OL69612W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL23767A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9781835528426"^^xsd:string ;
+    library:hasPublisher library:publisher_Nasionale_Boekhandel ;
+    library:hasTitle "The Secret Garden"^^xsd:string ;
+    library:numberOfPages "272"^^xsd:string ;
+    library:publicationYear 1911 .
+
+library:book_OL7012249W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL2890321A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "0196474256"^^xsd:string ;
+    library:hasPublisher library:publisher_Studentlitteratur ;
+    library:hasTitle "Lärobok i ALGOL"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1965 .
+
+library:book_OL76473W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_3 ;
+    library:hasAuthor library:author_OL18524A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9798421085997"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_Published ;
+    library:hasTitle "The Napoleon of Notting Hill"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1904 .
+
+library:book_OL79049W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL39750A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9780153134081"^^xsd:string ;
+    library:hasPublisher library:publisher_Harcourt ;
+    library:hasTitle "There is an alligator under my bed"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1987 .
+
+library:book_OL79050W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL39750A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9782070548149"^^xsd:string ;
+    library:hasPublisher library:publisher_Gallimard_Jeunesse ;
+    library:hasTitle "There's a nightmare in my cupboard"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1968 .
+
+library:book_OL7957316W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL2655160A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9780134525099"^^xsd:string ;
+    library:hasPublisher library:publisher_Prentice_Hall_College_Div ;
+    library:hasTitle "IBM PC Apprentice"^^xsd:string ;
+    library:numberOfPages "231"^^xsd:string ;
+    library:publicationYear 1984 .
+
+library:book_OL8019573W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL2669746A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9780201407280"^^xsd:string ;
+    library:hasPublisher library:publisher_Addison_Wesley_\(C\) ;
+    library:hasTitle "Inside Macintosh"^^xsd:string ;
+    library:numberOfPages "352"^^xsd:string ;
+    library:publicationYear 1986 .
+
+library:book_OL81629W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL19981A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9785170056026"^^xsd:string ;
+    library:hasPublisher library:publisher_ACT ;
+    library:hasTitle "The Green Mile"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1996 .
+
+library:book_OL82409W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_18 ;
+    library:hasAuthor library:author_OL23891A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9780064470681"^^xsd:string ;
+    library:hasPublisher library:publisher_HarperTrophy ;
+    library:hasTitle "Weetzie Bat"^^xsd:string ;
+    library:numberOfPages "88"^^xsd:string ;
+    library:publicationYear 1989 .
+
+library:book_OL970122W a library:Book,
+        owl:NamedIndividual ;
+    library:hasAuthor library:author_OL88204A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9788496726819"^^xsd:string ;
+    library:hasPublisher library:publisher_Animallibres ;
+    library:hasTitle "Emil und die Detektive"^^xsd:string ;
+    library:numberOfPages "184"^^xsd:string ;
+    library:publicationYear 1930 .
+
+library:loan_1 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL2960016W ;
+    library:borrower library:user_1 ;
+    library:loanDate "2025-05-10"^^xsd:date ;
+    library:returnDate "2025-06-29"^^xsd:date .
+
+library:loan_10 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL6222001W ;
+    library:borrower library:user_25 ;
+    library:loanDate "2025-05-20"^^xsd:date ;
+    library:returnDate "2025-06-09"^^xsd:date .
+
+library:loan_11 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL2645732W ;
+    library:borrower library:user_27 ;
+    library:loanDate "2025-05-12"^^xsd:date ;
+    library:returnDate "2025-06-18"^^xsd:date .
+
+library:loan_12 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL58402W ;
+    library:borrower library:user_18 ;
+    library:loanDate "2025-05-26"^^xsd:date ;
+    library:returnDate "2025-06-12"^^xsd:date .
+
+library:loan_13 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL3517771W ;
+    library:borrower library:user_42 ;
+    library:loanDate "2025-05-02"^^xsd:date ;
+    library:returnDate "2025-06-11"^^xsd:date .
+
+library:loan_14 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL4478176W ;
+    library:borrower library:user_29 ;
+    library:loanDate "2025-05-30"^^xsd:date ;
+    library:returnDate "2025-06-23"^^xsd:date .
+
+library:loan_15 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL17429331W ;
+    library:borrower library:user_34 ;
+    library:loanDate "2025-05-04"^^xsd:date ;
+    library:returnDate "2025-06-13"^^xsd:date .
+
+library:loan_16 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL9242045W ;
+    library:borrower library:user_31 ;
+    library:loanDate "2025-05-27"^^xsd:date ;
+    library:returnDate "2025-06-30"^^xsd:date .
+
+library:loan_17 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL17451852W ;
+    library:borrower library:user_29 ;
+    library:loanDate "2025-05-16"^^xsd:date ;
+    library:returnDate "2025-06-21"^^xsd:date .
+
+library:loan_18 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL82409W ;
+    library:borrower library:user_40 ;
+    library:loanDate "2025-05-08"^^xsd:date ;
+    library:returnDate "2025-06-26"^^xsd:date .
+
+library:loan_19 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL5117268W ;
+    library:borrower library:user_7 ;
+    library:loanDate "2025-05-02"^^xsd:date ;
+    library:returnDate "2025-06-06"^^xsd:date .
+
+library:loan_2 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL2829091W ;
+    library:borrower library:user_44 ;
+    library:loanDate "2025-05-06"^^xsd:date ;
+    library:returnDate "2025-06-30"^^xsd:date .
+
+library:loan_20 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL1099479W ;
+    library:borrower library:user_38 ;
+    library:loanDate "2025-05-14"^^xsd:date ;
+    library:returnDate "2025-06-03"^^xsd:date .
+
+library:loan_3 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL76473W ;
+    library:borrower library:user_27 ;
+    library:loanDate "2025-05-21"^^xsd:date ;
+    library:returnDate "2025-06-12"^^xsd:date .
+
+library:loan_4 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL471832W ;
+    library:borrower library:user_24 ;
+    library:loanDate "2025-05-28"^^xsd:date ;
+    library:returnDate "2025-06-30"^^xsd:date .
+
+library:loan_5 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL471509W ;
+    library:borrower library:user_38 ;
+    library:loanDate "2025-05-27"^^xsd:date ;
+    library:returnDate "2025-06-09"^^xsd:date .
+
+library:loan_6 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL151798W ;
+    library:borrower library:user_13 ;
+    library:loanDate "2025-05-05"^^xsd:date ;
+    library:returnDate "2025-06-01"^^xsd:date .
+
+library:loan_7 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL5818196W ;
+    library:borrower library:user_21 ;
+    library:loanDate "2025-05-17"^^xsd:date ;
+    library:returnDate "2025-06-25"^^xsd:date .
+
+library:loan_8 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL1970690W ;
+    library:borrower library:user_12 ;
+    library:loanDate "2025-05-28"^^xsd:date ;
+    library:returnDate "2025-06-13"^^xsd:date .
+
+library:loan_9 a library:Loan,
+        owl:NamedIndividual ;
+    library:borrowedBook library:book_OL407476W ;
+    library:borrower library:user_10 ;
+    library:loanDate "2025-05-16"^^xsd:date ;
+    library:returnDate "2025-06-12"^^xsd:date .
+
+library:publisher_ACT a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "ACT"^^xsd:string .
+
+library:publisher_Addison_Wesley a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Addison-Wesley"^^xsd:string .
+
+library:publisher_Addison_Wesley_\(C\) a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Addison-Wesley (C)"^^xsd:string .
+
+library:publisher_Addison_Wesley_Pub__Co_ a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Addison-Wesley Pub. Co."^^xsd:string .
+
+library:publisher_Alianza_Editorial a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Alianza Editorial"^^xsd:string .
+
+library:publisher_Altin a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Altin"^^xsd:string .
+
+library:publisher_Andersen_Press a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Andersen Press"^^xsd:string .
+
+library:publisher_Animallibres a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Animallibres"^^xsd:string .
+
+library:publisher_Arcturus_Publishing a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Arcturus Publishing"^^xsd:string .
+
+library:publisher_Arcturus_Publishing_Ltd a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Arcturus Publishing Ltd"^^xsd:string .
+
+library:publisher_Bantam_Classics a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Bantam Classics"^^xsd:string .
+
+library:publisher_Berkley_Jam_Books a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Berkley Jam Books"^^xsd:string .
+
+library:publisher_Blurb a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Blurb"^^xsd:string .
+
+library:publisher_Booket a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Booket"^^xsd:string .
+
+library:publisher_Borders_Classics a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Borders Classics"^^xsd:string .
+
+library:publisher_Boye___Fraser_Pub__Co_ a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Boye & Fraser Pub. Co."^^xsd:string .
+
+library:publisher_Brooks_Cole_Pub__Co_ a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Brooks/Cole Pub. Co."^^xsd:string .
+
+library:publisher_Companion_Book_Club a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Companion Book Club"^^xsd:string .
+
+library:publisher_Courier_Corporation a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Courier Corporation"^^xsd:string .
+
+library:publisher_Crocodile_Books a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Crocodile Books"^^xsd:string .
+
+library:publisher_David_Fickling_Books a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "David Fickling Books"^^xsd:string .
+
+library:publisher_Dover a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Dover"^^xsd:string .
+
+library:publisher_Ediciones_Ekare a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Ediciones Ekare"^^xsd:string .
+
+library:publisher_Edicions_Voramar__S_A_ a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Edicions Voramar, S.A."^^xsd:string .
+
+library:publisher_Editions_du_Masque a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Editions du Masque"^^xsd:string .
+
+library:publisher_Espasa a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Espasa"^^xsd:string .
+
+library:publisher_Farshore a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Farshore"^^xsd:string .
+
+library:publisher_GALLIMARD_JEUNE a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "GALLIMARD JEUNE"^^xsd:string .
+
+library:publisher_Gallimard_Jeunesse a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Gallimard Jeunesse"^^xsd:string .
+
+library:publisher_General_Books_LLC a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "General Books LLC"^^xsd:string .
+
+library:publisher_Greenwillow_Books a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Greenwillow Books"^^xsd:string .
+
+library:publisher_Harcourt a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Harcourt"^^xsd:string .
+
+library:publisher_HarperChildrensAudio a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "HarperChildrensAudio"^^xsd:string .
+
+library:publisher_HarperCollins_Publishers a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "HarperCollins Publishers"^^xsd:string .
+
+library:publisher_HarperFestival a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "HarperFestival"^^xsd:string .
+
+library:publisher_HarperTrophy a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "HarperTrophy"^^xsd:string .
+
+library:publisher_Harper_Arco_Iris a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Harper Arco Iris"^^xsd:string .
+
+library:publisher_Harpercollins a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Harpercollins"^^xsd:string .
+
+library:publisher_Hastings_House a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Hastings House"^^xsd:string .
+
+library:publisher_Hazar a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Hazar"^^xsd:string .
+
+library:publisher_Independently_published a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Independently published"^^xsd:string .
+
+library:publisher_Institute_of_Electrical___Electronics_Enginee a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Institute of Electrical & Electronics Enginee"^^xsd:string .
+
+library:publisher_Irwin a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Irwin"^^xsd:string .
+
+library:publisher_Karl_Müller a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Karl Müller"^^xsd:string .
+
+library:publisher_Listening_Library a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Listening Library"^^xsd:string .
+
+library:publisher_Little__Brown_Books_for_Young_Readers a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Little, Brown Books for Young Readers"^^xsd:string .
+
+library:publisher_Macmillan a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Macmillan"^^xsd:string .
+
+library:publisher_McGraw_Hill a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "McGraw-Hill"^^xsd:string .
+
+library:publisher_McGraw_Hill_Education a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "McGraw-Hill Education"^^xsd:string .
+
+library:publisher_McGraw_Hill_Science_Engineering_Math a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "McGraw-Hill Science/Engineering/Math"^^xsd:string .
+
+library:publisher_Mcgraw_Hill_College a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Mcgraw-Hill College"^^xsd:string .
+
+library:publisher_Methuen_Children_s a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Methuen Children's"^^xsd:string .
+
+library:publisher_Microsoft_Press a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Microsoft Press"^^xsd:string .
+
+library:publisher_N_A a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "N/A"^^xsd:string .
+
+library:publisher_Nasionale_Boekhandel a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Nasionale Boekhandel"^^xsd:string .
+
+library:publisher_Paw_Prints_2009_07_10 a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Paw Prints 2009-07-10"^^xsd:string .
+
+library:publisher_Peachpit_Press a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Peachpit Press"^^xsd:string .
+
+library:publisher_Penguin a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Penguin"^^xsd:string .
+
+library:publisher_Pinnacle_Press a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Pinnacle Press"^^xsd:string .
+
+library:publisher_Plutón_Ediciones a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Plutón Ediciones"^^xsd:string .
+
+library:publisher_Pocket a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Pocket"^^xsd:string .
+
+library:publisher_Pocket_jeunesse a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Pocket jeunesse"^^xsd:string .
+
+library:publisher_Prentice_Hall a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Prentice-Hall"^^xsd:string .
+
+library:publisher_Prentice_Hall_College_Div a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Prentice Hall College Div"^^xsd:string .
+
+library:publisher_Proa a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Proa"^^xsd:string .
+
+library:publisher_Scholastic a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Scholastic"^^xsd:string .
+
+library:publisher_Scholastic_Canada__Limited a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Scholastic Canada, Limited"^^xsd:string .
+
+library:publisher_Sterling a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Sterling"^^xsd:string .
+
+library:publisher_Studentlitteratur a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Studentlitteratur"^^xsd:string .
+
+library:publisher_Tandem_Library a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Tandem Library"^^xsd:string .
+
+library:publisher_The_MIT_Press a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "The MIT Press"^^xsd:string .
+
+library:publisher_Turtleback a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Turtleback"^^xsd:string .
+
+library:publisher_Viking_Children_s_Books a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Viking Children's Books"^^xsd:string .
+
+library:publisher_WALKER_BOOKS_LTD__ a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "WALKER BOOKS LTD.,"^^xsd:string .
+
+library:publisher_Walker_Books__Limited a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Walker Books, Limited"^^xsd:string .
+
+library:publisher_Warbler_Press a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Warbler Press"^^xsd:string .
+
+library:publisher_Young_Scott_Books a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Young Scott Books"^^xsd:string .
+
+library:publisher_世界图书出版公司 a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "世界图书出版公司"^^xsd:string .
+
+library:user_10 a library:User,
+        owl:NamedIndividual ;
+    library:name "Maria Garcia" ;
+    library:userEmail "maria.garcia@example.com" .
+
+library:user_16 a library:User,
+        owl:NamedIndividual ;
+    library:name "Sophia Lewis" ;
+    library:userEmail "sophia.lewis@example.com" .
+
+library:user_17 a library:User,
+        owl:NamedIndividual ;
+    library:name "Ana Sousa" ;
+    library:userEmail "ana.sousa@example.com" .
+
+library:user_2 a library:User,
+        owl:NamedIndividual ;
+    library:name "Emma Johnson" ;
+    library:userEmail "emma.johnson@example.com" .
+
+library:user_20 a library:User,
+        owl:NamedIndividual ;
+    library:name "Mariana Costa" ;
+    library:userEmail "mariana.costa@example.com" .
+
+library:user_24 a library:User,
+        owl:NamedIndividual ;
+    library:name "Inês Rodrigues" ;
+    library:userEmail "inês.rodrigues@example.com" .
+
+library:user_25 a library:User,
+        owl:NamedIndividual ;
+    library:name "Miguel Almeida" ;
+    library:userEmail "miguel.almeida@example.com" .
+
+library:user_26 a library:User,
+        owl:NamedIndividual ;
+    library:name "Sofia Martins" ;
+    library:userEmail "sofia.martins@example.com" .
+
+library:user_28 a library:User,
+        owl:NamedIndividual ;
+    library:name "Beatriz Gomes" ;
+    library:userEmail "beatriz.gomes@example.com" .
+
+library:user_30 a library:User,
+        owl:NamedIndividual ;
+    library:name "Matilde Marques" ;
+    library:userEmail "matilde.marques@example.com" .
+
+library:user_32 a library:User,
+        owl:NamedIndividual ;
+    library:name "Leonor Cardoso" ;
+    library:userEmail "leonor.cardoso@example.com" .
+
+library:user_4 a library:User,
+        owl:NamedIndividual ;
+    library:name "Sarah Davis" ;
+    library:userEmail "sarah.davis@example.com" .
+
+library:user_43 a library:User,
+        owl:NamedIndividual ;
+    library:name "Guilherme Antunes" ;
+    library:userEmail "guilherme.antunes@example.com" .
+
+library:user_5 a library:User,
+        owl:NamedIndividual ;
+    library:name "Robert Wilson" ;
+    library:userEmail "robert.wilson@example.com" .
+
+library:user_6 a library:User,
+        owl:NamedIndividual ;
+    library:name "Jennifer Thompson" ;
+    library:userEmail "jennifer.thompson@example.com" .
+
+library:user_7 a library:User,
+        owl:NamedIndividual ;
+    library:name "David Martinez" ;
+    library:userEmail "david.martinez@example.com" .
+
+library:author_OL22358A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """William Wilkie Collins (8 January 1824 – 23 September 1889) was an English novelist, playwright and short story writer best known for *The Woman in White* (1859) and *The Moonstone* (1868). The last has been called the first modern English detective novel. Born to the family of a painter, William Collins, in London, he grew up in Italy and France, learning French and Italian. He began work as a clerk for a tea merchant. After his first novel, Antonina, appeared in 1850, he met Charles Dickens, who became a close friend and mentor. Some of Collins's works appeared first in Dickens's journals *All the Year Round* and *Household Words* and they collaborated on drama and fiction. Collins achieved financial stability and an international following with his best known works in the 1860s, but began suffering from gout. Taking opium for the pain grew into an addiction. In the 1870s and 1880s his writing quality declined with his health. Collins was critical of the institution of marriage: he split his time between Caroline Graves and his common-law wife Martha Rudd, with whom he had three children.\r
+\r
+**Source**: [Wilkie Collins](https://en.wikipedia.org/wiki/Wilkie_Collins) on Wikipedia."""^^xsd:string ;
+    library:birthYear 1824 ;
+    library:deathYear 1889 ;
+    library:name "Collins, Wilkie"^^xsd:string .
+
+library:author_OL39750A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "N/A"^^xsd:string ;
+    library:birthYear 1943 ;
+    library:name "Mercer Mayer"^^xsd:string .
+
+library:author_OL403903A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Margaret Crosby "Peggy" Rathmann (born March 4, 1953) is an American illustrator and writer of children's picture books.\r
+\r
+Rathmann was born in St. Paul, Minnesota, and graduated from the University of Minnesota. She studied commercial art, fine art, and children's book creation in Chicago, Minneapolis, and Los Angeles. Her first book, "Ruby the Copycat, earned Ms. Rathmann the 'Most Promising New Author' distinction in Publishers Weekly's 1991 annual Cuffie Awards." That book was followed by her illustrations of Barbara Bottner's Bootsie Barker Bites and by the self-illustrated Good Night, Gorilla, based on her experiences with gorillas.[citation needed] Officer Buckle and Gloria (1995) won the annual Caldecott Medal for U.S. picture book illustration. Since then she has written two more: Ten Minutes till Bedtime and The Day The Babies Crawled Away, which made the Horn Book Fanfare List of best books of 2003.\r
+https://en.wikipedia.org/wiki/Peggy_Rathmann"""^^xsd:string ;
+    library:birthYear 1953 ;
+    library:name "Peggy Rathmann"^^xsd:string .
+
+library:book_OL1099479W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_20 ;
+    library:hasAuthor library:author_OL113611A ;
+    library:hasGenre library:genre_science_fiction ;
+    library:hasISBN "9798712811014"^^xsd:string ;
+    library:hasPublisher library:publisher_Independently_Published ;
+    library:hasTitle "De la terre à la lune"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1865 .
+
+library:book_OL151798W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_6 ;
+    library:hasAuthor library:author_OL22122A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9780613880725"^^xsd:string ;
+    library:hasPublisher library:publisher_Turtleback ;
+    library:hasTitle "Goodnight Moon"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1947 .
+
+library:book_OL17451852W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_17 ;
+    library:hasAuthor library:author_OL7318005A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9781118494691"^^xsd:string ;
+    library:hasPublisher library:publisher_Wiley___Sons__Incorporated__John ;
+    library:hasTitle "Raspberry Pi User Guide"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 2012 .
+
+library:book_OL1970690W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_8 ;
+    library:hasAuthor library:author_OL236786A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9780135094051"^^xsd:string ;
+    library:hasPublisher library:publisher_Pearson_Education__Limited ;
+    library:hasTitle "Structured Computer Organization"^^xsd:string ;
+    library:numberOfPages "800"^^xsd:string ;
+    library:publicationYear 1975 .
+
+library:book_OL2645732W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_11 ;
+    library:hasAuthor library:author_OL385634A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "0023095318"^^xsd:string ;
+    library:hasPublisher library:publisher_Macmillan ;
+    library:hasTitle "Information systems literacy"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1993 .
+
+library:book_OL2960016W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_1 ;
+    library:hasAuthor library:author_OL452099A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "0201565293"^^xsd:string ;
+    library:hasPublisher library:publisher_Addison_Wesley_Pub__Co_ ;
+    library:hasTitle "Software engineering"^^xsd:string ;
+    library:numberOfPages "649"^^xsd:string ;
+    library:publicationYear 1982 .
+
+library:book_OL407476W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_9 ;
+    library:hasAuthor library:author_OL18053A ;
+    library:hasGenre library:genre_mystery_and_detective_stories ;
+    library:hasISBN "9781981854837"^^xsd:string ;
+    library:hasPublisher library:publisher_CreateSpace_Independent_Publishing_Platform ;
+    library:hasTitle "The Story of the Amulet"^^xsd:string ;
+    library:numberOfPages "364"^^xsd:string ;
+    library:publicationYear 1905 .
+
+library:book_OL58402W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_12 ;
+    library:hasAuthor library:author_OL34796A ;
+    library:hasGenre library:genre_bedtime ;
+    library:hasISBN "9781406347180"^^xsd:string ;
+    library:hasPublisher library:publisher_Walker_Books__Limited ;
+    library:hasTitle "Guess How Much I Love You"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 1839 .
+
+library:book_OL6222001W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_10 ;
+    library:hasAuthor library:author_OL1607441A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9781138427426"^^xsd:string ;
+    library:hasPublisher library:publisher_Taylor___Francis_Group ;
+    library:hasTitle "3D Game Environments"^^xsd:string ;
+    library:numberOfPages "0"^^xsd:string ;
+    library:publicationYear 2008 .
+
+library:book_OL9242045W a library:Book,
+        owl:NamedIndividual ;
+    library:activeLoan library:loan_16 ;
+    library:hasAuthor library:author_OL3299689A ;
+    library:hasGenre library:genre_programming ;
+    library:hasISBN "9780321256119"^^xsd:string ;
+    library:hasPublisher library:publisher_Peachpit_Press ;
+    library:hasTitle "Apple Training Series"^^xsd:string ;
+    library:numberOfPages "864"^^xsd:string ;
+    library:publicationYear 2004 .
+
+library:publisher_Candlewick_Press a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Candlewick Press"^^xsd:string .
+
+library:publisher_HarperCollins_Publishers_Limited a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "HarperCollins Publishers Limited"^^xsd:string .
+
+library:publisher_MIT_Press a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "MIT Press"^^xsd:string .
+
+library:publisher_Pearson_Education__Limited a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Pearson Education, Limited"^^xsd:string .
+
+library:publisher_Wiley___Sons__Incorporated__John a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Wiley & Sons, Incorporated, John"^^xsd:string .
+
+library:user_11 a library:User,
+        owl:NamedIndividual ;
+    library:name "James Wilson" ;
+    library:userEmail "james.wilson@example.com" .
+
+library:user_12 a library:User,
+        owl:NamedIndividual ;
+    library:name "Patricia Moore" ;
+    library:userEmail "patricia.moore@example.com" .
+
+library:user_13 a library:User,
+        owl:NamedIndividual ;
+    library:name "Thomas White" ;
+    library:userEmail "thomas.white@example.com" .
+
+library:user_18 a library:User,
+        owl:NamedIndividual ;
+    library:name "José Silva" ;
+    library:userEmail "josé.silva@example.com" .
+
+library:user_22 a library:User,
+        owl:NamedIndividual ;
+    library:name "Francisca Pereira" ;
+    library:userEmail "francisca.pereira@example.com" .
+
+library:user_40 a library:User,
+        owl:NamedIndividual ;
+    library:name "Catarina Dias" ;
+    library:userEmail "catarina.dias@example.com" .
+
+library:user_42 a library:User,
+        owl:NamedIndividual ;
+    library:name "Alice Correia" ;
+    library:userEmail "alice.correia@example.com" .
+
+library:user_44 a library:User,
+        owl:NamedIndividual ;
+    library:name "Rita Gaspar" ;
+    library:userEmail "rita.gaspar@example.com" .
+
+library:user_8 a library:User,
+        owl:NamedIndividual ;
+    library:name "Lisa Anderson" ;
+    library:userEmail "lisa.anderson@example.com" .
+
+library:author_OL22122A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Margaret Wise Brown was born in Brooklyn, NY. While working as a teacher at the Bank Street Experimental School, she started writing books for children. Margaret was a prolific writer. Over 100 of her stories were published as picture books during her lifetime. She also wrote articles about writing for children, adapted classics, ghost wrote stories and many of her stories appear in anthologies.\r
+\r
+On November 13, 1952 at the age of 42 she died from an embolism, following a operation while on vacation in France. Posthumously several stories were at publishers ready for publication. In recent years many of Margaret's works have been reprinted. Many were previously published as stories in collections and anthologies; some are from unfinished manuscripts."""^^xsd:string ;
+    library:birthYear 1910 ;
+    library:deathYear 1952 ;
+    library:name "Margaret Wise Brown"^^xsd:string .
+
+library:user_1 a library:User,
+        owl:NamedIndividual ;
+    library:name "John Smith" ;
+    library:userEmail "john.smith@example.com" .
+
+library:user_21 a library:User,
+        owl:NamedIndividual ;
+    library:name "Pedro Santos" ;
+    library:userEmail "pedro.santos@example.com" .
+
+library:user_27 a library:User,
+        owl:NamedIndividual ;
+    library:name "Francisco Fernandes" ;
+    library:userEmail "francisco.fernandes@example.com" .
+
+library:user_31 a library:User,
+        owl:NamedIndividual ;
+    library:name "André Ribeiro" ;
+    library:userEmail "andré.ribeiro@example.com" .
+
+library:user_34 a library:User,
+        owl:NamedIndividual ;
+    library:name "Carolina Carvalho" ;
+    library:userEmail "carolina.carvalho@example.com" .
+
+library:user_38 a library:User,
+        owl:NamedIndividual ;
+    library:name "Lara Mendes" ;
+    library:userEmail "lara.mendes@example.com" .
+
+library:user_9 a library:User,
+        owl:NamedIndividual ;
+    library:name "Carlos Rodriguez" ;
+    library:userEmail "carlos.rodriguez@example.com" .
+
+library:author_OL113611A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Jules Verne was a French author who helped pioneer the science-fiction genre. \r
+\r
+He is best known for his novels A Journey to the Centre of the Earth (1864), From the Earth to the Moon (1865), Twenty Thousand Leagues Under the Sea (1869–1870), Around the World in Eighty Days (1873) and The Mysterious Island (1875). Verne wrote about space, air, and underwater travel before navigable aircraft and practical submarines were invented, and before any means of space travel had been devised. Consequently he is often referred to as the "Father of science fiction", along with H. G. Wells. ([Source][1].)\r
+\r
+Also as of 2023, Jules Verne is regarded as the second most translated author in the world. ([Source][2].)\r
+\r
+  [1]: http://en.wikipedia.org/wiki/Jules_Verne\r
+  [2]: https://www.tomedes.com/translator-hub/most-translated-author.php"""^^xsd:string ;
+    library:birthYear 1828 ;
+    library:deathYear 1905 ;
+    library:name "Jules Verne"^^xsd:string .
+
+library:author_OL146605A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Edgar Rice Burroughs was born in Chicago, Illinois, the son of a businessman.  During the Chicago influenza epidemic in 1891, he spent half a year on his brothers' ranch on the Raft River in Idaho.  He attended the Phillips Academy in Andover, Massachusetts and then the Michigan Military Academy, from which he graduated in 1895.  He failed the entrance exam for West Point, and so became an enlisted soldier with the 7th U.S. Cavalry in Fort Grant, Arizona Territory.  He was discharged in 1897, having been found ineligible for service due to a heart problem.\r
+\r
+He drifted, working odd jobs at ranches across Idaho, then came to work at his father's firm in 1899.  He married Emma Centennia Hulbert in 1900.  In 1904 he left his job and found less regular work, ending up back in Chicago.  He held several low-wage jobs for the next seven years, then, while working as a pencil sharpener wholesaler, he began to write fiction in 1911.  He began reading pulp fiction magazines and decided to aim his fiction toward getting published in these magazines.  His first published story, "Under the Moons of Mars," was serialized in The All-Story magazine in 1912.  He began writing full-time and his first published novel, Tarzan of the Apes, was published in October of 1912.\r
+\r
+In 1919 he purchased a ranch north of Los Angeles, California which he named "Tarzana," a name which was later adopted by the citizens of the community that sprang up around the ranch.  In 1923 he set up Edgar Rice Burroughs, Inc. and began printing his own books.  He divorced Emma in 1934 and married former actress Florence Gilbert Dearholt in 1935.  In 1941, when Pearl Harbor, Hawaii was attacked, he was a resident of Hawaii and he volunteered to become the oldest war correspondent for the U.S. during World War II.  He divorced his second wife in 1942.  After the war he moved back to Encino, California, where, after many health problems, he died of a heart attack in March of 1950.  Over the course of his writing career he wrote almost seventy novels."""^^xsd:string ;
+    library:birthYear 1875 ;
+    library:deathYear 1950 ;
+    library:name "Edgar Rice Burroughs"^^xsd:string .
+
+library:publisher_Taylor___Francis_Group a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Taylor & Francis Group"^^xsd:string .
+
+library:author_OL13066A a library:Author,
+        owl:NamedIndividual ;
+    library:bio "Herbert George Wells was an English author, best known for his work in the science fiction genre. He was also a prolific writer in many genres, including contemporary novels, history, politics and social commentary."^^xsd:string ;
+    library:birthYear 1866 ;
+    library:deathYear 1946 ;
+    library:name "H. G. Wells"^^xsd:string .
+
+library:user_29 a library:User,
+        owl:NamedIndividual ;
+    library:name "Tiago Lopes" ;
+    library:userEmail "tiago.lopes@example.com" .
+
+library:author_OL27695A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Agatha Mary Clarissa Miller was born in Torquay, Devon, in the United Kingdom, the daughter of a wealthy American stockbroker. Her father died when she was eleven years old. Her mother taught her at home, encouraging her to write at a very young age. At the age of 16, she went to Mrs. Dryden's finishing school in Paris to study singing and piano. In 1914, at age 24, she married Colonel Archibald Christie, an aviator in the Royal Flying Corps. While he went away to war, she worked as a nurse and wrote her first novel, The Mysterious Affair at Styles (1920), which wasn't published until four years later. When her husband came back from the war, they had a daughter. In 1928 she divorced her husband, who had been having an affair. In 1930, she married Sir Max Mallowan, an archaeologist and a Catholic. She was happy in the early years of her second marriage, and did not divorce her husband despite his many affairs. She travelled with her husband's job, and set several of her novels set in the Middle East. Most of her other novels were set in a fictionalized Devon, where she was born.\r
+\r
+Agatha Christie is credited with developing the "cozy style" of mystery, which became popular in, and ultimately defined, the Golden Age of fiction in England in the 1920s and '30s, an age of which she is considered to have been Queen. In all, she wrote over 66 novels, numerous short stories and screenplays, and a series of romantic novels using the pen name Mary Westmacott. She was the single most popular mystery writer of all time. In 1971 she was made a Dame Commander of the Order of the British Empire."""^^xsd:string ;
+    library:birthYear 1890 ;
+    library:deathYear 1976 ;
+    library:name "Agatha Christie"^^xsd:string .
+
+library:publisher_CreateSpace_Independent_Publishing_Platform a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "CreateSpace Independent Publishing Platform"^^xsd:string .
+
+library:author_OL161167A a library:Author,
+        owl:NamedIndividual ;
+    library:bio """Sir Arthur Ignatius Conan Doyle KStJ, DL (22 May 1859 – 7 July 1930) was a Scottish writer and physician, most noted for creating the fictional detective Sherlock Holmes and writing stories about him which are generally considered milestones in the field of crime fiction.\r
+\r
+He is also known for writing the fictional adventures of a second character he invented, Professor Challenger, and for popularising the mystery of the Mary Celeste. He was a prolific writer whose other works include fantasy and science fiction stories, plays, romances, poetry, non-fiction and historical novels.<sup>[1][1]</sup>\r
+\r
+\r
+  [1]: https://en.wikipedia.org/wiki/Arthur_Conan_Doyle"""^^xsd:string ;
+    library:birthYear 1859 ;
+    library:deathYear 1930 ;
+    library:name "Doyle, Arthur Conan"^^xsd:string .
+
+library:publisher_Independently_Published a library:Publisher,
+        owl:NamedIndividual ;
+    library:name "Independently Published"^^xsd:string .
+
+library:genre_bedtime a library:Genre,
+        owl:NamedIndividual ;
+    library:name "Bedtime books"^^xsd:string .
+
+library:genre_mystery_and_detective_stories a library:Genre,
+        owl:NamedIndividual ;
+    library:name "Mystery and detective stories"^^xsd:string .
+
+library:genre_programming a library:Genre,
+        owl:NamedIndividual ;
+    library:name "Programming"^^xsd:string .
+
+library:genre_science_fiction a library:Genre,
+        owl:NamedIndividual ;
+    library:name "Science Fiction"^^xsd:string .
+

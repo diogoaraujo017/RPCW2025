@@ -1,0 +1,250 @@
+{% extends "base.html" %}
+
+{% block title %}{{ author.name }} - Library Ontology{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Breadcrumb navigation -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('authors') }}">Authors</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ author.name }}</li>
+        </ol>
+    </nav>
+
+    <!-- Author Header Section -->
+    <div class="row mb-4">
+        <div class="col-lg-8">
+            <h1 class="display-5">
+                <i class="fas fa-user"></i> {{ author.name }}
+            </h1>
+            {% if author.birth_year %}
+            <h5 class="text-muted">
+                <i class="fas fa-birthday-cake"></i> Born: {{ author.birth_year }}
+                <small class="text-muted">({{ (2025 - author.birth_year|int) }} years ago)</small>
+            </h5>
+            {% endif %}
+        </div>
+        <div class="col-lg-4 text-lg-end">
+            <a href="{{ url_for('authors') }}" class="btn btn-outline-primary">
+                <i class="fas fa-arrow-left"></i> Back to Authors
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Author Details -->
+        <div class="col-md-4">
+            <!-- Author Profile Card -->
+            <div class="card mb-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="fas fa-id-card"></i> Author Profile</h5>
+                </div>
+                <div class="card-body">
+                    <!-- Author Avatar Placeholder -->
+                    <div class="text-center mb-3">
+                        <div class="author-avatar bg-light border rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3"
+                             style="width: 150px; height: 150px;">
+                            <i class="fas fa-user fa-4x text-secondary"></i>
+                        </div>
+                    </div>
+                    
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th scope="row"><i class="fas fa-signature"></i> Name:</th>
+                                <td>{{ author.name }}</td>
+                            </tr>
+                            {% if author.birth_year %}
+                            <tr>
+                                <th scope="row"><i class="fas fa-birthday-cake"></i> Birth Year:</th>
+                                <td>{{ author.birth_year }}</td>
+                            </tr>
+                            {% endif %}
+                            {% if author.death_year %}
+                            <tr>
+                                <th scope="row"><i class="fas fa-monument"></i> Death Year:</th>
+                                <td>{{ author.death_year }}</td>
+                            </tr>
+                            {% endif %}
+                            <tr>
+                                <th scope="row"><i class="fas fa-books"></i> Books:</th>
+                                <td>{{ books|list|length }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer bg-light">
+                </div>
+            </div>
+            
+            <!-- Genre Statistics -->
+            {% set genres_list = genres|list %}
+            {% if genres_list and genres_list|length > 0 %}
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="fas fa-chart-pie"></i> Genre Distribution</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="list-group list-group-flush">
+                        {% for genre in genres_list %}
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span><i class="fas fa-tag"></i> {{ genre.genre_name }}</span>
+                                <span class="badge bg-primary rounded-pill">{{ genre.count|int }}</span>
+                            </div>
+                            <div class="progress mt-2" style="height: 5px;">
+                                <div class="progress-bar" role="progressbar" 
+                                     style="width: {{ (genre.count|int / genres_list[0].count|int * 100)|int }}%;" 
+                                     aria-valuenow="{{ genre.count|int }}" aria-valuemin="0" 
+                                     aria-valuemax="{{ genres_list[0].count|int }}"></div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        
+        <!-- Author's Books -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-book"></i> Books by {{ author.name }}</h5>
+                </div>
+                <div class="card-body">
+                    {% if books %}
+                        {% set book_list = books|list %}
+                        <div class="row">
+                            {% for book in book_list %}
+                            <div class="col-md-6 col-lg-6 mb-3">
+                                <div class="card h-100">
+                                    <div class="card-header">
+                                        <h6 class="card-title mb-0">
+                                            <a href="{{ url_for('book_detail', book_id=book.book|extract_id) }}" class="text-decoration-none">
+                                                {{ book.title }}
+                                            </a>
+                                        </h6>
+                                    </div>
+                                    <div class="card-body">
+                                        {% if book.year %}
+                                        <p class="card-text">
+                                            <small><i class="fas fa-calendar"></i> {{ book.year }}</small>
+                                        </p>
+                                        {% endif %}
+                                        
+                                        {% if book.genre_name %}
+                                        <p class="card-text">
+                                            <span class="badge bg-secondary">{{ book.genre_name }}</span>
+                                        </p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="card-footer bg-light">
+                                        <a href="{{ url_for('book_detail', book_id=book.book|extract_id) }}" class="btn btn-sm btn-primary">
+                                            <i class="fas fa-info-circle"></i> Details
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i> No books found for this author.
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Publication Timeline -->
+            {% if books %}
+            {% set books_with_years = books|selectattr('year')|list %}
+            {% if books_with_years %}
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5><i class="fas fa-timeline"></i> Publication Timeline</h5>
+                </div>
+                <div class="card-body">
+                    <div class="timeline">
+                        {% for book in books_with_years|sort(attribute='year') %}
+                        <div class="timeline-item d-flex align-items-center mb-3">
+                            <div class="timeline-year bg-primary text-white rounded px-3 py-1 me-3">
+                                {{ book.year }}
+                            </div>
+                            <div class="timeline-content">
+                                <a href="{{ url_for('book_detail', book_id=book.book|extract_id) }}" class="text-decoration-none">
+                                    <strong>{{ book.title }}</strong>
+                                </a>
+                                {% if book.genre_name %}
+                                <span class="badge bg-secondary ms-2">{{ book.genre_name }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- Biography Section -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-book-open"></i> Biography</h5>
+                </div>
+                <div class="card-body">
+                    {% if author.bio %}
+                    <p>{{ author.bio|safe }}</p>
+                    {% else %}
+                    <p class="text-muted">
+                        <i>Biographical information is not available for this author.</i>
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.timeline {
+    position: relative;
+    padding: 1rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background: #dee2e6;
+    left: 50px;
+    top: 0;
+}
+
+.timeline-item {
+    position: relative;
+    z-index: 1;
+}
+
+.author-avatar {
+    transition: transform 0.3s;
+}
+
+.author-avatar:hover {
+    transform: scale(1.05);
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+});
+</script>
+{% endblock %}

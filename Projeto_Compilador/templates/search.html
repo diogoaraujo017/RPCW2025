@@ -1,0 +1,383 @@
+{% extends "base.html" %}
+{% from "pagination.html" import pagination %}
+
+{% block title %}Search - Library Ontology{% endblock %}
+
+{% block content %}
+<div class="search-container">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h1 class="text-center mb-4">
+                    <i class="fas fa-search"></i> Search Library Collection
+                </h1>
+                <form method="POST" action="{{ url_for('search') }}" class="mb-4">
+                    <div class="row g-3">
+                        <div class="col-md-8">
+                            <input type="text" class="form-control form-control-lg" name="search_term" 
+                                   placeholder="Enter your search term..." 
+                                   value="{{ search_term or '' }}" autofocus>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select form-select-lg" name="search_type">
+                                <option value="all" {% if search_type == 'all' %}selected{% endif %}>All Fields</option>
+                                <option value="title" {% if search_type == 'title' %}selected{% endif %}>Title</option>
+                                <option value="author" {% if search_type == 'author' %}selected{% endif %}>Author</option>
+                                <option value="genre" {% if search_type == 'genre' %}selected{% endif %}>Genre</option>
+                                <option value="publisher" {% if search_type == 'publisher' %}selected{% endif %}>Publisher</option>
+                                <option value="isbn" {% if search_type == 'isbn' %}selected{% endif %}>ISBN</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-light btn-lg w-100" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Advanced search options -->
+                    <div class="mt-3">
+                        <div class="form-check form-check-inline text-light">
+                            <input class="form-check-input" type="checkbox" id="show_advanced" name="show_advanced" value="1" 
+                                   {% if show_advanced %}checked{% endif %} 
+                                   onchange="toggleAdvancedOptions(this.checked)">
+                            <label class="form-check-label" for="show_advanced">Advanced Search Options</label>
+                        </div>
+                    </div>
+                    
+                    <div id="advancedOptions" class="mt-3 p-3 rounded bg-light" {% if not show_advanced %}style="display: none;"{% endif %}>
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label class="form-label text-dark">Publication Year </label>
+                                <div class="input-group">
+                                    <span class="input-group-text">From</span>
+                                    <input type="number" class="form-control" name="year_from" min="1000" max="2025" 
+                                           value="{{ year_from or '' }}" placeholder="Year">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">&nbsp;</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">To</span>
+                                    <input type="number" class="form-control" name="year_to" min="1000" max="2025" 
+                                           value="{{ year_to or '' }}" placeholder="Year">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-dark">Sort Results</label>
+                                <select class="form-select" name="sort_by">
+                                    <option value="title" {% if sort_by == 'title' %}selected{% endif %}>Title (A-Z)</option>
+                                    <option value="title_desc" {% if sort_by == 'title_desc' %}selected{% endif %}>Title (Z-A)</option>
+                                    <option value="year" {% if sort_by == 'year' %}selected{% endif %}>Year (Oldest First)</option>
+                                    <option value="year_desc" {% if sort_by == 'year_desc' %}selected{% endif %}>Year (Newest First)</option>
+                                    <option value="author" {% if sort_by == 'author' %}selected{% endif %}>Author (A-Z)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-text text-light mt-2">
+                        <i class="fas fa-info-circle"></i> 
+                        Search across the library collection using different criteria
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    {% if search_term %}
+    <div class="row">
+        <div class="col-12">
+            <h3>
+                <i class="fas fa-search"></i> 
+                Search Results for: <span class="text-primary">"{{ search_term }}"</span>
+                {% if search_type and search_type != 'all' %}
+                <small class="text-muted">
+                    in 
+                    {% if search_type == 'title' %}titles
+                    {% elif search_type == 'author' %}authors
+                    {% elif search_type == 'genre' %}genres
+                    {% elif search_type == 'publisher' %}publishers
+                    {% elif search_type == 'isbn' %}ISBN
+                    {% endif %}
+                </small>
+                {% endif %}
+            </h3>
+            
+            {% if search_filters %}
+            <div class="mb-3">
+                <span class="text-muted">Filters: {{ search_filters }}</span>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        {% if results %}
+            {% set result_list = results|list %}
+            <div class="col-12 mb-3">
+                <div class="alert alert-success">
+                    <i class="fas fa-check-circle"></i> 
+                    Showing page {{ page }} of {{ total_pages }} ({{ result_list|length }} of {{ total_results }} results matching your search)
+                </div>
+            </div>
+            
+            {% for result in result_list %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-book-open"></i> 
+                            <a href="{{ url_for('book_detail', book_id=result.book|extract_id) }}" class="text-white text-decoration-none">
+                                {{ result.title }}
+                            </a>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        {% if result.author_name and result.author %}
+                        <p class="card-text">
+                            <strong><i class="fas fa-user"></i> Author:</strong> 
+                            <span class="{% if search_type == 'author' and search_term.lower() in result.author_name.lower() %}bg-warning{% endif %}">
+                                <a href="{{ url_for('author_detail', author_id=result.author|extract_id) }}" class="text-decoration-none">
+                                    {{ result.author_name }}
+                                </a>
+                            </span>
+                        </p>
+                        {% endif %}
+                        
+                        {% if result.year %}
+                        <p class="card-text">
+                            <strong><i class="fas fa-calendar"></i> Year:</strong> 
+                            <span class="{% if year_from or year_to %}bg-light{% endif %}">
+                                {{ result.year }}
+                            </span>
+                        </p>
+                        {% endif %}
+                        
+                        {% if result.genre_name %}
+                        <p class="card-text">
+                            <strong><i class="fas fa-tags"></i> Genre:</strong> 
+                            <span class="badge bg-secondary {% if search_type == 'genre' and search_term.lower() in result.genre_name.lower() %}bg-warning text-dark{% endif %}">
+                                {{ result.genre_name }}
+                            </span>
+                        </p>
+                        {% endif %}
+                        
+                        {% if result.publisher_name %}
+                        <p class="card-text">
+                            <strong><i class="fas fa-building"></i> Publisher:</strong> 
+                            <span class="{% if search_type == 'publisher' and search_term.lower() in result.publisher_name.lower() %}bg-warning{% endif %}">
+                                {{ result.publisher_name }}
+                            </span>
+                        </p>
+                        {% endif %}
+                        
+                        {% if result.isbn %}
+                        <p class="card-text">
+                            <strong><i class="fas fa-barcode"></i> ISBN:</strong> 
+                            <span class="{% if search_type == 'isbn' and search_term.lower() in result.isbn.lower() %}bg-warning{% endif %}">
+                                {{ result.isbn }}
+                            </span>
+                        </p>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                {% if search_type == 'all' %}
+                                    {% if search_term.lower() in result.title.lower() %}
+                                        <i class="fas fa-bullseye"></i> Match in title
+                                    {% elif result.author_name and search_term.lower() in result.author_name.lower() %}
+                                        <i class="fas fa-bullseye"></i> Match in author
+                                    {% elif result.genre_name and search_term.lower() in result.genre_name.lower() %}
+                                        <i class="fas fa-bullseye"></i> Match in genre
+                                    {% elif result.publisher_name and search_term.lower() in result.publisher_name.lower() %}
+                                        <i class="fas fa-bullseye"></i> Match in publisher
+                                    {% elif result.isbn and search_term.lower() in result.isbn.lower() %}
+                                        <i class="fas fa-bullseye"></i> Match in ISBN
+                                    {% endif %}
+                                {% endif %}
+                            </small>
+                            <a href="{{ url_for('book_detail', book_id=result.book|extract_id) }}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-info-circle"></i> Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+            <!-- Pagination controls -->
+            <div class="col-12 mt-4">
+                {{ pagination(page, total_pages, 'search') }}
+            </div>
+        {% else %}
+            <div class="col-12">
+                <div class="alert alert-warning">
+                    <h4><i class="fas fa-exclamation-triangle"></i> No Results Found</h4>
+                    <p>Sorry, no books match your search criteria: <strong>"{{ search_term }}"</strong></p>
+                    
+                    <h6>Search Tips:</h6>
+                    <ul>
+                        <li>Try different keywords or partial words</li>
+                        <li>Check your spelling</li>
+                        <li>Try searching in all fields instead of specific ones</li>
+                        <li>Remove filters (like year range) to broaden your search</li>
+                    </ul>
+                    
+                    <div class="mt-3">
+                        <a href="{{ url_for('search') }}" class="btn btn-outline-primary me-2">
+                            <i class="fas fa-search"></i> New Search
+                        </a>
+                        <a href="{{ url_for('index') }}" class="btn btn-primary">
+                            <i class="fas fa-list"></i> Browse All Books
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    {% else %}
+    <!-- Search Instructions -->
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-question-circle"></i> How to Search</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-book"></i> Search by Title:</h6>
+                            <ul>
+                                <li>Full or partial book titles</li>
+                                <li>Case-insensitive matching</li>
+                                <li>Example: "1984", "pride", "prejudice"</li>
+                            </ul>
+                            
+                            <h6 class="mt-3"><i class="fas fa-user"></i> Search by Author:</h6>
+                            <ul>
+                                <li>Author names (first or last)</li>
+                                <li>Partial name matching</li>
+                                <li>Example: "Orwell", "George", "Austen"</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-tags"></i> Search by Genre:</h6>
+                            <ul>
+                                <li>Genre names or categories</li>
+                                <li>Example: "fiction", "mystery", "romance"</li>
+                            </ul>
+                            
+                            <h6 class="mt-3"><i class="fas fa-building"></i> Search by Publisher:</h6>
+                            <ul>
+                                <li>Publishing company names</li>
+                                <li>Example: "Penguin", "Bloomsbury"</li>
+                            </ul>
+                            
+                            <h6 class="mt-3"><i class="fas fa-barcode"></i> Search by ISBN:</h6>
+                            <ul>
+                                <li>International Standard Book Numbers</li>
+                                <li>Example: "978-0-452-28423-4"</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info mt-3">
+                        <i class="fas fa-lightbulb"></i> <strong>Tip:</strong> 
+                        Use the Advanced Search Options to filter by publication year and sort results.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popular Searches or Recent Activity -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-fire"></i> Quick Access</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-star"></i> Browse by Category:</h6>
+                            <div class="d-grid gap-2">
+                                <a href="{{ url_for('authors') }}" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-users"></i> All Authors
+                                </a>
+                                <a href="{{ url_for('index') }}" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-books"></i> All Books
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-tools"></i> Advanced:</h6>
+                            <div class="d-grid gap-2">
+                                <a href="{{ url_for('ontology_info') }}" class="btn btn-outline-info btn-sm">
+                                    <i class="fas fa-info-circle"></i> View Ontology Info
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchTerm = "{{ search_term or '' }}".toLowerCase();
+    if (searchTerm && searchTerm.trim().length > 0) {
+        function highlightTextNodes(node) {
+            if (node.nodeType === 3) { 
+                const text = node.nodeValue;
+                const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                if (regex.test(text)) {
+                    const fragment = document.createDocumentFragment();
+                    const tempDiv = document.createElement('div');
+                    
+                    tempDiv.innerHTML = text.replace(regex, '<mark>$1</mark>');
+                    
+                    while (tempDiv.firstChild) {
+                        fragment.appendChild(tempDiv.firstChild);
+                    }
+                    
+                    node.parentNode.replaceChild(fragment, node);
+                }
+            } else if (node.nodeType === 1 && 
+                      !['script', 'style', 'mark', 'a'].includes(node.tagName.toLowerCase())) {
+                Array.from(node.childNodes).forEach(child => highlightTextNodes(child));
+            }
+        }
+        
+        document.querySelectorAll('.card-body .card-title, .card-body .card-text').forEach(card => {
+            const cardClone = card.cloneNode(true);
+            Array.from(cardClone.childNodes).forEach(child => highlightTextNodes(child));
+            card.parentNode.replaceChild(cardClone, card);
+        });
+    }
+    
+    const searchInput = document.querySelector('input[name="search_term"]');
+    if (searchInput && !searchInput.value) {
+        searchInput.focus();
+    }
+});
+
+function toggleAdvancedOptions(show) {
+    const advancedOptions = document.getElementById('advancedOptions');
+    if (show) {
+        advancedOptions.style.display = 'block';
+    } else {
+        advancedOptions.style.display = 'none';
+    }
+}
+</script>
+{% endblock %}
+{% endblock %}

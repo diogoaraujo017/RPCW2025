@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% from "pagination.html" import pagination %}
+
+{% block title %}Books - Library Ontology{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1><i class="fas fa-book"></i> Library Collection</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        {% if books %}
+            {% set book_list = books|list %}
+            <div class="col-12 mb-4">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i> 
+                    Showing page {{ page }} of {{ total_pages }} ({{ book_list|length }} of {{ total_books }} books)
+                </div>
+            </div>
+
+            {% for book in book_list %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-book-open"></i> 
+                            {{ book.title or "Untitled" }}
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        {% if book.author_name and book.author %}
+                        <p class="card-text">
+                            <strong><i class="fas fa-user"></i> Author:</strong> 
+                            {% set author_id = book.author|extract_id %}
+                            {% if author_id %}
+                                <a href="{{ url_for('author_detail', author_id=author_id) }}" class="text-decoration-none">
+                                    {{ book.author_name }}
+                                </a>
+                            {% else %}
+                                {{ book.author_name }}
+                            {% endif %}
+                        </p>
+                        {% endif %}
+                        
+                        {% if book.isbn %}
+                        <p class="card-text">
+                            <strong><i class="fas fa-barcode"></i> ISBN:</strong> 
+                            {{ book.isbn }}
+                        </p>
+                        {% endif %}
+                        
+                        {% if book.year %}
+                        <p class="card-text">
+                            <strong><i class="fas fa-calendar"></i> Year:</strong> 
+                            {{ book.year }}
+                        </p>
+                        {% endif %}
+                        
+                        {% if book.publisher_name %}
+                        <p class="card-text">
+                            <strong><i class="fas fa-building"></i> Publisher:</strong> 
+                            {{ book.publisher_name }}
+                        </p>
+                        {% endif %}
+                        
+                        {% if book.genre_name %}
+                        <p class="card-text">
+                            <strong><i class="fas fa-tags"></i> Genre:</strong> 
+                            <span class="badge bg-secondary">{{ book.genre_name }}</span>
+                        </p>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center bg-light">
+                        <a href="{{ url_for('book_detail', book_id=book.book|extract_id) }}" class="btn btn-primary btn-sm">
+                            <i class="fas fa-info-circle"></i> Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+            <!-- Pagination controls -->
+            <div class="col-12 mt-4">
+                {{ pagination(page, total_pages, 'index') }}
+            </div>
+        {% else %}
+            <div class="col-12">
+                <div class="alert alert-info text-center">
+                    <h4><i class="fas fa-info-circle"></i> No Books Found</h4>
+                    <p>The library collection is empty.</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Statistics Section -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3><i class="fas fa-chart-bar"></i> Quick Stats</h3>
+        </div>
+        <div class="col-md-3">
+            <div class="card stats-card text-center">
+                <div class="card-body">
+                    <h2>{{ stats.books }}</h2>
+                    <p class="mb-0">Total Books</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stats-card text-center">
+                <div class="card-body">
+                    <h2>{{ stats.authors }}</h2>
+                    <p class="mb-0">Authors</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stats-card text-center">
+                <div class="card-body">
+                    <h2>{{ stats.publishers }}</h2>
+                    <p class="mb-0">Publishers</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stats-card text-center">
+                <div class="card-body">
+                    <h2>{{ stats.genres }}</h2>
+                    <p class="mb-0">Genres</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
